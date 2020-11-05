@@ -1,0 +1,140 @@
+$theme-primary-faint: rgba(165, 115, 65, 0.15);
+$theme-secondary-faint: rgba(120, 120, 120, 0.25);
+
+// the -v5's are the actual/main/primary colors. Colors above them are the darker variants while those below lighter variants
+
+$theme-primary: rgb(165, 115, 65); //supposed gold color
+$prim-r: 165;
+$prim-g: 115;
+$prim-b: 65;
+$theme-primary-v1: rgb(
+  $prim-r - (25 * 4),
+  $prim-g - (25 * 4),
+  $prim-b - (25 * 4)
+);
+$theme-primary-v2: rgb(
+  $prim-r - (25 * 3),
+  $prim-g - (25 * 3),
+  $prim-b - (25 * 3)
+);
+$theme-primary-v3: rgb(
+  $prim-r - (25 * 2),
+  $prim-g - (25 * 2),
+  $prim-b - (25 * 2)
+);
+$theme-primary-v4: rgb(
+  $prim-r - (25 * 1),
+  $prim-g - (25 * 1),
+  $prim-b - (25 * 1)
+);
+$theme-primary-v5: rgb($prim-r, $prim-g, $prim-b);
+$theme-primary-v6: rgb(
+  $prim-r + (25 * 1),
+  $prim-g + (25 * 1),
+  $prim-b + (25 * 1)
+);
+$theme-primary-v7: rgb(
+  $prim-r + (25 * 2),
+  $prim-g + (25 * 2),
+  $prim-b + (25 * 2)
+);
+$theme-primary-v8: rgb(
+  $prim-r + (25 * 3),
+  $prim-g + (25 * 3),
+  $prim-b + (25 * 3)
+);
+$theme-primary-v9: rgb(
+  $prim-r + (25 * 4),
+  $prim-g + (25 * 4),
+  $prim-b + (25 * 4)
+);
+
+// theme secondary
+
+$theme-secondary: rgb(120, 120, 120); //supposed gold color
+$sec-r: 120;
+$sec-g: 120;
+$sec-b: 120;
+$theme-secondary-v1: rgb(
+  $sec-r - (25 * 4),
+  $sec-g - (25 * 4),
+  $sec-b - (25 * 4)
+);
+$theme-secondary-v2: rgb(
+  $sec-r - (25 * 3),
+  $sec-g - (25 * 3),
+  $sec-b - (25 * 3)
+);
+$theme-secondary-v3: rgb(
+  $sec-r - (25 * 2),
+  $sec-g - (25 * 2),
+  $sec-b - (25 * 2)
+);
+$theme-secondary-v4: rgb(
+  $sec-r - (25 * 1),
+  $sec-g - (25 * 1),
+  $sec-b - (25 * 1)
+);
+$theme-secondary-v5: rgb($sec-r, $sec-g, $sec-b);
+$theme-secondary-v6: rgb(
+  $sec-r + (25 * 1),
+  $sec-g + (25 * 1),
+  $sec-b + (25 * 1)
+);
+$theme-secondary-v7: rgb(
+  $sec-r + (25 * 2),
+  $sec-g + (25 * 2),
+  $sec-b + (25 * 2)
+);
+$theme-secondary-v8: rgb(
+  $sec-r + (25 * 3),
+  $sec-g + (25 * 3),
+  $sec-b + (25 * 3)
+);
+$theme-secondary-v9: rgb(
+  $sec-r + (25 * 4),
+  $sec-g + (25 * 4),
+  $sec-b + (25 * 4)
+);
+
+$success: rgb(27, 136, 27);
+$error: rgb(245, 34, 34);
+$info: rgb(0, 124, 246);
+
+@mixin debugger($color: blue) {
+  border: 1px solid $color;
+
+  * {
+    border: 1px solid $color;
+  }
+}
+
+@mixin before-or-after-v2(
+  $bg: $theme-primary-v8,
+  $w: 100%,
+  $h: 100%,
+  $br: 0,
+  $tr: 0.35s,
+  $t: 0,
+  $l: 0,
+  $r: 0,
+  $b: 0,
+  $zi: -1,
+  $bs: none,
+  $o: 1
+) {
+  position: absolute;
+  content: ' ';
+  width: $w;
+  height: $h;
+  top: $t;
+  left: $l;
+  right: $r;
+  bottom: $b;
+  z-index: $zi;
+  background: $bg;
+  border-radius: $br;
+  box-shadow: $bs;
+  opacity: $o;
+  transition: $tr;
+}

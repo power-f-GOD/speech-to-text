@@ -1,0 +1,243 @@
+//You may append your own styles to the following CSSbut not modify it, but modify only if you need to or should
+
+@import 'constants';
+
+html,
+body,
+#root {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  font-size: 1.025rem;
+  color: #111;
+  line-height: 1.8rem;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Comfortaa', 'Trebuchet MS', sans-serif !important;
+  outline: none !important;
+}
+
+body {
+  padding: 0 !important;
+
+  &.desktop {
+    [class*='PrivateSwipeArea'] {
+      display: none;
+    }
+
+    &.custom-scroll-bar,
+    .custom-scroll-bar,
+    .MuiDrawer-paper {
+      &::-webkit-scrollbar {
+        width: 0.75em;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: $theme-primary-v6;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $theme-primary-v3 !important;
+      }
+    }
+  }
+}
+
+#root {
+  height: auto;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  overflow: hidden;
+
+  > div {
+    width: 100%;
+  }
+}
+
+img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+input {
+  margin: 1em 0;
+
+  font: {
+    family: inherit;
+    size: inherit;
+  }
+}
+
+a {
+  color: $theme-primary-v5;
+
+  &:hover,
+  &:focus {
+    color: $theme-primary-v2;
+    text-decoration: underline;
+  }
+}
+
+button,
+a {
+  text-transform: unset !important;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+hr {
+  margin: 1.25rem 0;
+  height: 0.2rem;
+  border-radius: 0.1rem;
+  border: none;
+  background: $theme-primary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: 'Google Sans', 'Trebuchet MS', sans-serif !important;
+  line-height: 150%;
+
+  * {
+    font-size: inherit;
+    font-family: 'Google Sans', 'Trebuchet MS', sans-serif !important;
+  }
+}
+
+h1 {
+  font-size: 3.1rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.6rem;
+}
+
+h5 {
+  font-size: 1.3rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+.logo {
+  color: white !important;
+  padding: 0.15em;
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 900;
+  border-radius: 2rem;
+  margin: 0.15rem 0 !important;
+  min-width: 10rem;
+  margin-left: -0.45rem !important;
+  border: 1px solid transparent;
+
+  img {
+    width: 2.5em;
+    border-radius: 50%;
+    filter: hue-rotate(-10deg) brightness(90%) contrast(120%);
+  }
+
+  a {
+    color: #eee;
+    font-size: inherit;
+
+    &.active {
+      color: $theme-primary-v9;
+    }
+  }
+
+  &:focus-within {
+    border: 1px solid $theme-primary-v8;
+  }
+}
+
+.theme-color-text {
+  color: $theme-primary-v4;
+}
+.theme-color-text-lightest {
+  color: $theme-primary-v9;
+}
+
+.theme-color-bg {
+  background-color: $theme-primary;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-shadow {
+  text-shadow: 0.0625rem 0.0625rem 0.1rem rgba(0, 0, 0, 0.5);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+[class^='MuiFormControl'],
+div {
+  fieldset {
+    transition: 0.35s, border-width 0s;
+  }
+}
+
+.MuiOutlinedInput-root {
+  border-radius: 0.35rem;
+  background: #f8f8f8;
+}
+
+[class^='MuiFormControl'],
+div {
+  .MuiInputBase-root {
+    &::before,
+    &::after {
+      transition: 0.3s;
+    }
+
+    &::after {
+      border-color: $theme-primary;
+    }
+
+    &:hover {
+      &::before {
+        border-color: grey;
+      }
+    }
+  }
+
+  .Mui-focused {
+    color: $theme-primary !important;
+  }
+
+  .Mui-disabled {
+    fieldset {
+      background: #ddd;
+      border: none !important;
+    }
+  }
+}

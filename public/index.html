@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="rgb(82, 38, 0)" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
+    <link rel="manifest" href="/manifest.json" />
+
+    <title>Speech-to-Text App</title>
+    <script>
+      setTimeout(() => {
+        document.head.insertAdjacentHTML(
+          'afterbegin',
+          '<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600,700,800,900|Google+Sans:300,400,500,700,900&display=swap"/>'
+        );
+      }, 10);
+    </script>
+  </head>
+
+  <body class="custom-scroll-bar">
+    <!-- webp support checker -->
+    <!-- <img
+      style="display: none"
+      src="/images/logos/logo-title-trans.webp"
+      onload="this.parentNode.classList.add('webp');"
+      onerror="this.parentNode.classList.add('no-webp');"
+    /> -->
+
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root" class="custom-scroll-bar"></div>
+  </body>
+</html>

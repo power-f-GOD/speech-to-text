@@ -1,0 +1,249 @@
+.fade-in {
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.75s forwards ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+// Switchgears landing page animation
+
+@keyframes slideInBottom {
+  from {
+    transform: translateY(150%);
+    opacity: 0;
+    box-shadow: -1rem 25rem 0
+      rgba($prim-r + 100, $prim-g + 100, $prim-b + 100, 0.65);
+  }
+  to {
+    transform: translateY(10%);
+    opacity: 1;
+    box-shadow: -3rem 1rem 0
+      rgba($prim-r + 100, $prim-g + 100, $prim-b + 100, 0.65);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-out-left {
+  animation: slideOutLeft 0.75s forwards ease;
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.slide-out-right {
+  animation: slideOutRight 0.75s forwards ease;
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.nav-link-menu {
+  animation: fadeIn 0.5s ease;
+}
+
+.sub-menu {
+  animation: slideIn 0.5s ease;
+}
+
+// home page animations
+
+.slide-in-top {
+  animation: slideInTop 0.75s ease;
+}
+
+@keyframes slideInTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes backgroundSlideIn {
+  0% {
+    transform: translateX(100%);
+  }
+  3%,
+  50% {
+    transform: translateX(0);
+  }
+  53%,
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes rotateLogo {
+  0% {
+    transform: rotateZ(0);
+  }
+  2%,
+  51% {
+    transform: rotateZ(720deg);
+  }
+  53%,
+  100% {
+    transform: rotateZ(1440deg);
+  }
+}
+
+@keyframes swapZIndex {
+  0%,
+  50% {
+    z-index: 2;
+  }
+
+  51%,
+  100% {
+    z-index: 3;
+  }
+}
+
+@keyframes headerSlideUp {
+  2%,
+  51% {
+    opacity: 0;
+    transform: translateY(-9rem);
+  }
+
+  53%,
+  100%,
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes descSlideUp {
+  2%,
+  51% {
+    opacity: 0;
+    transform: translateY(6rem);
+  }
+
+  53%,
+  100%,
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ctaSlideRight {
+  2%,
+  51% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(15rem);
+  }
+
+  53%,
+  100%,
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Portfolio page animation(s)
+
+@keyframes reveal {
+  3%,
+  30% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  32%,
+  100% {
+    opacity: 0;
+    transform: translateX(-20rem);
+  }
+}
+
+@keyframes swapBg {
+  0%,
+  30% {
+    background-image: url('/images/switch-gears.jpg');
+  }
+  33%,
+  63% {
+    background-image: url('/images/switch-gears-2.jpg');
+  }
+  66%,
+  97% {
+    background-image: url('/images/switch-gears-3.jpg');
+  }
+}
+
+@keyframes swapBgWebp {
+  0%,
+  30% {
+    background-image: url('/images/switch-gears.webp');
+  }
+  33%,
+  63% {
+    background-image: url('/images/switch-gears-2.webp');
+  }
+  66%,
+  97% {
+    background-image: url('/images/switch-gears-3.webp');
+  }
+}
