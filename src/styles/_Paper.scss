@@ -38,7 +38,7 @@
   position: relative;
   overflow-y: auto;
   background: inherit;
-  max-height: calc(100% - 9rem);
+  max-height: calc(100% - 8.75rem);
   height: 100%;
   width: calc(100% + 2rem);
   margin: 0 -1rem;
@@ -64,7 +64,7 @@
 
 .footer {
   // @include debugger();
-  height: 4rem;
+  height: 3.75rem;
   margin: 0 -0.75rem -0.75rem;
   width: calc(100% + 2.5rem);
   padding-bottom: 0.5rem;
