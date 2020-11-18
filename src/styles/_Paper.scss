@@ -36,14 +36,13 @@
   background: inherit;
   max-height: calc(100% - 9.75rem);
   height: 100%;
-  width: calc(100% + 2rem);
   border-top: 0.0625rem solid $theme-primary-v7;
   border-bottom: 0.0625rem solid $theme-primary-v7;
 }
 
 .text-area {
   display: block;
-  padding: 0.35rem 1rem 0 3rem;
+  padding: 0.35rem 0.75rem 0 2.5rem;
   min-height: 100%;
   line-height: 2rem;
   background-image: linear-gradient(
@@ -54,7 +53,7 @@
     linear-gradient(#e0e0e0 0.0625rem, white 0);
   background-size: 0.0625rem 0.0625rem, 0.0625rem 0.0625rem, 100% 2rem;
   background-repeat: repeat-y;
-  background-position: 2rem 0, 2.2rem 0, 0 3.95rem;
+  background-position: 1.5rem 0, 1.7rem 0, 0 3.95rem;
 }
 
 footer.footer {
