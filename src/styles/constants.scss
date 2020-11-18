@@ -3,10 +3,10 @@ $theme-secondary-faint: rgba(120, 120, 120, 0.25);
 
 // the -v5's are the actual/main/primary colors. Colors above them are the darker variants while those below lighter variants
 
-$theme-primary: rgb(165, 115, 65); //supposed gold color
-$prim-r: 165;
-$prim-g: 115;
-$prim-b: 65;
+$theme-primary: rgb(40, 168, 40); //green color
+$prim-r: 40;
+$prim-g: 168;
+$prim-b: 40;
 $theme-primary-v1: rgb(
   $prim-r - (25 * 4),
   $prim-g - (25 * 4),

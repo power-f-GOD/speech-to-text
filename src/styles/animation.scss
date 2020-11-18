@@ -91,12 +91,17 @@
   }
 }
 
-.nav-link-menu {
-  animation: fadeIn 0.5s ease;
+.scale-in {
+  animation: scaleIn 0.75s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.sub-menu {
-  animation: slideIn 0.5s ease;
+@keyframes scaleIn {
+  from {
+    transform: translateY(-200vh) scale(10);
+  }
+  to {
+    transform: translateY(0) scale(1);
+  }
 }
 
 // home page animations
@@ -127,123 +132,5 @@
   53%,
   100% {
     transform: translateX(-100%);
-  }
-}
-
-@keyframes rotateLogo {
-  0% {
-    transform: rotateZ(0);
-  }
-  2%,
-  51% {
-    transform: rotateZ(720deg);
-  }
-  53%,
-  100% {
-    transform: rotateZ(1440deg);
-  }
-}
-
-@keyframes swapZIndex {
-  0%,
-  50% {
-    z-index: 2;
-  }
-
-  51%,
-  100% {
-    z-index: 3;
-  }
-}
-
-@keyframes headerSlideUp {
-  2%,
-  51% {
-    opacity: 0;
-    transform: translateY(-9rem);
-  }
-
-  53%,
-  100%,
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes descSlideUp {
-  2%,
-  51% {
-    opacity: 0;
-    transform: translateY(6rem);
-  }
-
-  53%,
-  100%,
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes ctaSlideRight {
-  2%,
-  51% {
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(15rem);
-  }
-
-  53%,
-  100%,
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-// Portfolio page animation(s)
-
-@keyframes reveal {
-  3%,
-  30% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  32%,
-  100% {
-    opacity: 0;
-    transform: translateX(-20rem);
-  }
-}
-
-@keyframes swapBg {
-  0%,
-  30% {
-    background-image: url('/images/switch-gears.jpg');
-  }
-  33%,
-  63% {
-    background-image: url('/images/switch-gears-2.jpg');
-  }
-  66%,
-  97% {
-    background-image: url('/images/switch-gears-3.jpg');
-  }
-}
-
-@keyframes swapBgWebp {
-  0%,
-  30% {
-    background-image: url('/images/switch-gears.webp');
-  }
-  33%,
-  63% {
-    background-image: url('/images/switch-gears-2.webp');
-  }
-  66%,
-  97% {
-    background-image: url('/images/switch-gears-3.webp');
   }
 }

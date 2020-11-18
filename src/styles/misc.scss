@@ -8,14 +8,15 @@ body,
   height: 100vh;
   width: 100%;
   margin: 0;
-  font-size: 1.025rem;
+  font-size: 1rem;
+  background-color: $theme-primary-v1;
   color: #111;
   line-height: 1.8rem;
 }
 
 * {
   box-sizing: border-box;
-  font-family: 'Comfortaa', 'Trebuchet MS', sans-serif !important;
+  font-family: 'Quicksand', 'Trebuchet MS', sans-serif !important;
   outline: none !important;
 }
 
@@ -85,7 +86,7 @@ button,
 a {
   text-transform: unset !important;
   font-size: 1rem;
-  transition: 0.3s;
+  transition: 0.3s !important;
 }
 
 hr {
@@ -166,6 +167,15 @@ h6 {
   &:focus-within {
     border: 1px solid $theme-primary-v8;
   }
+}
+
+.container,
+.row,
+.col {
+  margin: 0;
+  padding: 0;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .theme-color-text {
