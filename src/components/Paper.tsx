@@ -20,12 +20,13 @@ const Paper = () => {
           Content here is editable...
         </Row>
       </Container>
-
-      <IconButton
-        className='record'
-        onClick={() => alert('Still under construction, baby. :D')}>
-        <MicIcon />
-      </IconButton>
+      <Container as='footer' className='footer px-0'>
+        <IconButton
+          className='record'
+          onClick={() => alert('Still under construction, baby. :D')}>
+          <MicIcon />
+        </IconButton>
+      </Container>
     </Container>
   );
 };

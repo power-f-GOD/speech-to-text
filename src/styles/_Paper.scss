@@ -38,7 +38,7 @@
   position: relative;
   overflow-y: auto;
   background: inherit;
-  max-height: calc(100% - 8.75rem);
+  max-height: calc(100% - 9rem);
   height: 100%;
   width: calc(100% + 2rem);
   margin: 0 -1rem;
@@ -60,6 +60,14 @@
   background-size: 0.0625rem 0.0625rem, 0.0625rem 0.0625rem, 100% 2rem;
   background-repeat: repeat-y;
   background-position: 2rem 0, 2.2rem 0, 0 3.95rem;
+}
+
+.footer {
+  // @include debugger();
+  height: 4rem;
+  margin: 0 -0.75rem -0.75rem;
+  width: calc(100% + 2.5rem);
+  padding-bottom: 0.5rem;
 }
 
 button.record {
