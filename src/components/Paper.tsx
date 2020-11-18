@@ -10,7 +10,7 @@ const Paper = () => {
   return (
     <Container className='Paper scale-in'>
       <Container fluid as='header'>
-        <h1>R Text-to-Speech App</h1>
+        <h1>R Speech-to-Text App</h1>
       </Container>
       <Container fluid className='text-area-container px-0'>
         <Row
