@@ -92,12 +92,12 @@
 }
 
 .scale-in {
-  animation: scaleIn 0.65s cubic-bezier(0.645, 0.045, 0.355, 1);
+  animation: scaleIn 0.75s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 @keyframes scaleIn {
   from {
-    transform: scale(10);
+    transform: scale(6);
   }
   to {
     transform: scale(1);

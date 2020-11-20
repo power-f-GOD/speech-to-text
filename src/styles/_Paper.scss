@@ -53,26 +53,80 @@
     linear-gradient(#e0e0e0 0.0625rem, white 0);
   background-size: 0.0625rem 0.0625rem, 0.0625rem 0.0625rem, 100% 2rem;
   background-repeat: repeat-y;
+  font-weight: 500;
+  white-space: pre-wrap;
   background-position: 1.5rem 0, 1.7rem 0, 0 3.95rem;
+
+  .interim-transcript {
+    color: #bbb;
+  }
 }
 
 footer.footer {
   // @include debugger();
   height: 3.75rem;
-  padding: 0.25rem 0.25rem !important;
+  margin: unset;
+  padding: 0.25rem;
 }
 
-button.record {
-  background-color: $theme-primary;
+button.mic-button {
+  background-color: $theme-primary-v6;
   color: white;
   box-shadow: 0 0.25rem 1.5rem rgba(0, 0, 0, 0.2);
   position: relative;
   bottom: 0;
+  // overflow: hidden;
+  z-index: 5;
   left: calc(100% - 3.25rem);
+
+  > * {
+    position: relative;
+  }
 
   &:hover,
   &:focus {
-    color: $theme-primary;
-    background-color: transparent;
+    background-color: $theme-primary-v3;
+  }
+
+  &.is-listening {
+    background-color: red;
+
+    &:hover,
+    &:focus {
+      color: white;
+      background-color: rgb(180, 0, 0);
+
+      &::before,
+      &::after {
+        background: rgb(180, 0, 0);
+      }
+    }
+
+    &::before,
+    &::after {
+      @include before-or-after(
+        $h: 100%,
+        $w: 100%,
+        $bg: transparent,
+        $br: inherit
+      );
+      background: red;
+      animation: chatButtonRipple 1.75s infinite;
+    }
+
+    &::after {
+      animation-delay: 0.65s;
+    }
+
+    @keyframes chatButtonRipple {
+      from {
+        opacity: 1;
+        transform: scale(0.9);
+      }
+      to {
+        transform: scale(1.35);
+        opacity: 0;
+      }
+    }
   }
 }

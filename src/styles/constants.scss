@@ -109,7 +109,7 @@ $info: rgb(0, 124, 246);
   }
 }
 
-@mixin before-or-after-v2(
+@mixin before-or-after(
   $bg: $theme-primary-v8,
   $w: 100%,
   $h: 100%,

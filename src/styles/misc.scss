@@ -170,10 +170,11 @@ h6 {
 .container,
 .row,
 .col {
-  margin: 0;
+  margin: unset;
   padding: 0;
   padding-right: 0;
   padding-left: 0;
+  max-width: unset;
 }
 
 .theme-color-text {
