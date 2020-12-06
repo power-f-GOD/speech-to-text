@@ -13,9 +13,13 @@
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
 
   header {
-    height: 6rem;
+    height: 5.75rem;
     overflow: hidden;
     padding: 0.5rem;
+
+    .tool-bar__button {
+      border-radius: 0.5rem;
+    }
   }
 
   h1 {
@@ -29,12 +33,17 @@
   }
 }
 
+.tool-bar__button {
+  height: 2.35rem;
+  width: 2.35rem;
+}
+
 .text-area-container {
   // @include debugger();
   position: relative;
   overflow-y: auto;
   background: inherit;
-  max-height: calc(100% - 9.75rem);
+  max-height: calc(100% - 10rem);
   height: 100%;
   border-top: 0.0625rem solid $theme-primary-v7;
   border-bottom: 0.0625rem solid $theme-primary-v7;
@@ -42,7 +51,7 @@
 
 .text-area {
   display: block;
-  padding: 0.35rem 0.75rem 0 2.5rem;
+  padding: 0.35rem 0.75rem 0 2.25rem;
   min-height: 100%;
   line-height: 2rem;
   background-image: linear-gradient(
@@ -56,28 +65,48 @@
   font-weight: 500;
   white-space: pre-wrap;
   background-position: 1.5rem 0, 1.7rem 0, 0 3.95rem;
+}
 
-  .interim-transcript {
-    color: #bbb;
-  }
+.interim-transcript {
+  color: #bbb;
+  pointer-events: none;
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 2.25rem;
 }
 
 footer.footer {
   // @include debugger();
-  height: 3.75rem;
+  height: 4.25rem;
   margin: unset;
-  padding: 0.25rem;
+  padding: 0 0.25rem 0.25rem;
+
+  [class*=col] {
+    display: flex;
+    padding: 0 0.25rem 0.25rem !important;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .tool-bar__button {
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+    color: $theme-primary-v5;
+    background-color: rgba($prim-r, $prim-g, $prim-b, 0.1)
+  }
 }
 
 button.mic-button {
   background-color: $theme-primary-v6;
   color: white;
   box-shadow: 0 0.25rem 1.5rem rgba(0, 0, 0, 0.2);
-  position: relative;
+  // position: relative;
   bottom: 0;
+  align-self: center;
   // overflow: hidden;
   z-index: 5;
-  left: calc(100% - 3.25rem);
+  // left: calc(100% - 3.25rem);
 
   > * {
     position: relative;
