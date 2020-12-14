@@ -12,12 +12,12 @@ body,
   font-size: 1rem;
   background-color: $theme-primary-v1;
   color: #111;
+  font-family: 'Quicksand', 'Trebuchet MS', sans-serif;
   line-height: 1.8rem;
 }
 
 * {
   box-sizing: border-box;
-  font-family: 'Quicksand', 'Trebuchet MS', sans-serif !important;
   outline: none !important;
 }
 
@@ -175,6 +175,10 @@ h6 {
   padding-right: 0;
   padding-left: 0;
   max-width: unset;
+}
+
+.w-100 {
+  width: 100% !important;
 }
 
 .theme-color-text {

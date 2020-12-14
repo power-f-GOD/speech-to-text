@@ -7,15 +7,17 @@
   margin: 2.5vh auto;
   max-width: 100%;
   overflow-x: hidden;
-  position: relative;
+
   border-radius: 1.75rem;
   background-color: white;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
 
   header {
     height: 5.75rem;
-    overflow: hidden;
+    overflow: visible;
     padding: 0.5rem;
+    position: relative;
+    z-index: 1;
 
     .tool-bar__button {
       border-radius: 0.5rem;
@@ -33,9 +35,69 @@
   }
 }
 
+// .tool-bar {
+// }
+
 .tool-bar__button {
   height: 2.35rem;
   width: 2.35rem;
+  color: #222;
+}
+
+.font-select-container {
+  // @include debugger();
+  max-width: 30%;
+  width: 9.5rem;
+  display: inline-block;
+
+  button {
+    display: flex;
+    width: 100%;
+    font-size: inherit;
+    padding: 0.25rem 0.5rem;
+    justify-content: flex-start;
+  }
+
+  &:focus-within {
+    .fonts-container {
+      display: block;
+    }
+  }
+}
+
+.select-font__button {
+  background-color: #eee;
+  border-radius: 0.5rem;
+
+  .d-inline-block {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.fonts-container {
+  position: absolute;
+  width: inherit;
+  max-width: inherit;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-top: 0.25rem;
+  background-color: $theme-primary-v6;
+  color: white;
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.2);
+  animation-duration: 0.3s !important;
+  display: none;
+
+  button {
+    border-radius: 0;
+    color: inherit;
+    border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.1);
+
+    &.active {
+      background-color: $theme-primary-v5;
+    }
+  }
 }
 
 .text-area-container {
@@ -45,14 +107,13 @@
   background: inherit;
   max-height: calc(100% - 10rem);
   height: 100%;
-  border-top: 0.0625rem solid $theme-primary-v7;
   border-bottom: 0.0625rem solid $theme-primary-v7;
+  border-top: 0.0625rem solid $theme-primary-v7;
 }
 
 .text-area {
   display: block;
   padding: 0.35rem 0.75rem 0 2.25rem;
-  min-height: 100%;
   line-height: 2rem;
   background-image: linear-gradient(
       $theme-primary-v7 0.0625rem,
@@ -63,8 +124,19 @@
   background-size: 0.0625rem 0.0625rem, 0.0625rem 0.0625rem, 100% 2rem;
   background-repeat: repeat-y;
   font-weight: 500;
+  position: relative;
   white-space: pre-wrap;
+  border-bottom: 0.0625rem solid #e0e0e0;
   background-position: 1.5rem 0, 1.7rem 0, 0 3.95rem;
+
+  &::before {
+    @include before-or-after(
+      $bg: white,
+      $zi: 0,
+      $h: 0.45rem,
+      $t: calc(100% - 0.35rem)
+    );
+  }
 }
 
 .interim-transcript {
@@ -82,7 +154,7 @@ footer.footer {
   margin: unset;
   padding: 0 0.25rem 0.25rem;
 
-  [class*=col] {
+  [class*='col'] {
     display: flex;
     padding: 0 0.25rem 0.25rem !important;
     justify-content: flex-end;
@@ -93,7 +165,7 @@ footer.footer {
     min-height: 2.75rem;
     min-width: 2.75rem;
     color: $theme-primary-v5;
-    background-color: rgba($prim-r, $prim-g, $prim-b, 0.1)
+    background-color: rgba($prim-r, $prim-g, $prim-b, 0.1);
   }
 }
 

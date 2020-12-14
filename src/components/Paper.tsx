@@ -11,12 +11,29 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 import MicIcon from '@material-ui/icons/Mic';
 import MicOffIcon from '@material-ui/icons/MicOff';
 import FormatBoldIcon from '@material-ui/icons/FormatBold';
 import FormatItalicIcon from '@material-ui/icons/FormatItalic';
 import FormatUnderlinedIcon from '@material-ui/icons/FormatUnderlined';
 import CopyIcon from '@material-ui/icons/FilterNone';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+type AppFontTypes =
+  | 'Sans-serif'
+  | 'Sans'
+  | 'Quicksand'
+  | 'Dancing Script'
+  | 'Google Sans';
+
+const fonts: AppFontTypes[] = [
+  'Quicksand',
+  'Sans-serif',
+  'Sans',
+  'Google Sans',
+  'Dancing Script'
+];
 
 const SpeechRecognition$ =
   window.SpeechRecognition || (window as any).webkitSpeechRecognition;
@@ -35,6 +52,7 @@ const Paper = () => {
   const [micIsOn, setMicIsOn] = useState<boolean>(false);
   const [finalTranscript, setFinalTranscript] = useState<string>('');
   const [interimTranscript, setInterimTranscript] = useState<string>('');
+  const [selectedFont, setSelectedFont] = useState<AppFontTypes>('Quicksand');
 
   const editorRef = useRef<HTMLElement | null>(null);
   const interimTranscriptRef = useRef<HTMLElement | null>(null);
@@ -76,6 +94,19 @@ const Paper = () => {
     []
   );
 
+  const handleFontSelect = useCallback(
+    (font: AppFontTypes) => (
+      e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    ) => {
+      const button = e.currentTarget as HTMLButtonElement;
+
+      setSelectedFont(font);
+      document.execCommand('fontName', false, font);
+      button.blur();
+    },
+    []
+  );
+
   const copyEditorTextToClipBoard = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       getSelectionRange(editorRef.current!).then((selection) => {
@@ -98,6 +129,7 @@ const Paper = () => {
           recognition?.start();
         } else {
           setIsListening(false);
+          setInterimTranscript('');
         }
       };
     }
@@ -109,8 +141,10 @@ const Paper = () => {
       recognition.interimResults = true;
 
       recognition.onstart = () => {
+        setInterimTranscript('Listening...');
+
         if (finalTranscript$) {
-          // finalTranscript$ += '';
+          finalTranscript$ += ' ';
           setFinalTranscript(finalTranscript$);
         }
         setIsListening(true);
@@ -144,7 +178,7 @@ const Paper = () => {
           const { transcript: t, confidence } = e.results[i][0];
           const { isFinal } = e.results[i];
 
-          if (isFinal && confidence >= 0.6) {
+          if (isFinal && confidence >= 0.5) {
             if (lastDebounceTranscript !== t || !finalTranscript$) {
               finalTranscript$ += t;
             }
@@ -166,27 +200,39 @@ const Paper = () => {
     <Container className='Paper scale-in'>
       <Container fluid as='header'>
         <h1>R Speech-to-Text App</h1>
-        <Row className='mx-0 tool-bar justify-content-start'>
-          <Col className='w-auto px-0 my-2'>
-            <IconButton
-              className={`tool-bar__button mr-1`}
-              onClick={makeSelectionBold}>
-              <FormatBoldIcon />
-            </IconButton>
-            <IconButton
-              className={`tool-bar__button mr-1`}
-              onClick={makeSelectionItalic}>
-              <FormatItalicIcon />
-            </IconButton>
-            <IconButton
-              className={`tool-bar__button mr-1`}
-              onClick={makeSelectionUnderlined}>
-              <FormatUnderlinedIcon />
-            </IconButton>
-          </Col>
-
-          <Col className='mr-auto'></Col>
-        </Row>
+        <Container className='mx-0 tool-bar justify-content-start my-2'>
+          <IconButton
+            className={`tool-bar__button mr-1`}
+            onClick={makeSelectionBold}>
+            <FormatBoldIcon />
+          </IconButton>
+          <IconButton
+            className={`tool-bar__button mr-1`}
+            onClick={makeSelectionItalic}>
+            <FormatItalicIcon />
+          </IconButton>
+          <IconButton
+            className={`tool-bar__button mr-1`}
+            onClick={makeSelectionUnderlined}>
+            <FormatUnderlinedIcon />
+          </IconButton>
+          <Container className='font-select-container mx-1'>
+            <Button className='select-font__button justify-content-between'>
+              <span className='d-inline-block'>{selectedFont}</span>
+              <ExpandMoreIcon />
+            </Button>
+            <Container className='fonts-container slide-in-bottom'>
+              {fonts.map((font) => (
+                <Button
+                  onClick={handleFontSelect(font)}
+                  className={`${font === selectedFont ? 'active' : ''}`}
+                  key={font}>
+                  {font}
+                </Button>
+              ))}
+            </Container>
+          </Container>
+        </Container>
       </Container>
       <Container fluid className='text-area-container px-0'>
         <Row
