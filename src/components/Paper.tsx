@@ -217,7 +217,9 @@ const Paper = () => {
             <FormatUnderlinedIcon />
           </IconButton>
           <Container className='font-select-container mx-1'>
-            <Button className='select-font__button justify-content-between'>
+            <Button
+              className='select-font__button justify-content-between'
+              style={{ fontFamily: selectedFont }}>
               <span className='d-inline-block'>{selectedFont}</span>
               <ExpandMoreIcon />
             </Button>
@@ -226,6 +228,7 @@ const Paper = () => {
                 <Button
                   onClick={handleFontSelect(font)}
                   className={`${font === selectedFont ? 'active' : ''}`}
+                  style={{ fontFamily: font }}
                   key={font}>
                   {font}
                 </Button>

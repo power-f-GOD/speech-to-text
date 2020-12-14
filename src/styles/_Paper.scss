@@ -26,7 +26,7 @@
 
   h1 {
     font-size: 1.05rem;
-    color: $theme-primary-v4;
+    color: $theme-primary-v5;
     border-radius: 1.35rem 1.35rem 0.2rem 0.2rem;
     text-align: center;
     width: auto;
@@ -54,7 +54,7 @@
     display: flex;
     width: 100%;
     font-size: inherit;
-    padding: 0.25rem 0.5rem;
+    height: 2.25rem;
     justify-content: flex-start;
   }
 
@@ -92,7 +92,7 @@
   button {
     border-radius: 0;
     color: inherit;
-    border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.1);
+    // border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.1);
 
     &.active {
       background-color: $theme-primary-v5;
