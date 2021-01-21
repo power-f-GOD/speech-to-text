@@ -1,13 +1,5 @@
-import React, {
-  useState,
-  useCallback,
-  useEffect,
-  useRef,
-  FormEvent,
-  MouseEvent
-} from 'react';
+import React, { useCallback, MouseEvent } from 'react';
 
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -16,8 +8,7 @@ import MicIcon from '@material-ui/icons/Mic';
 import MicOffIcon from '@material-ui/icons/MicOff';
 
 import FAIcon from './Icon';
-import Header from './Header';
-import TextArea, { editorRef, interimTranscriptRef } from './TextArea';
+import { editorRef, interimTranscriptRef } from './TextArea';
 
 import { getSelectionRange } from '../utils/misc';
 
@@ -47,22 +38,22 @@ const Footer = (props: {
     <Row as='footer' className='footer mx-0'>
       <Col className='d-flex flex-row-reverse px-1' xs={9}>
         <IconButton
-          className={`tool-bar__button mr-2`}
+          className={`tool-bar__button mr-1 mr-sm-2`}
           onClick={copyEditorTextToClipBoard}>
           <FAIcon name='copy' variant='outlined' />
         </IconButton>
         <IconButton
-          className={`tool-bar__button mr-2`}
+          className={`tool-bar__button mr-1 mr-sm-2`}
           onClick={stillInProgress}>
           <FAIcon name='file-download' />
         </IconButton>
         <IconButton
-          className={`tool-bar__button mr-2`}
+          className={`tool-bar__button mr-1 mr-sm-2`}
           onClick={stillInProgress}>
           <FAIcon name='print' />
         </IconButton>
         <IconButton
-          className={`tool-bar__button mx-2`}
+          className={`tool-bar__button mx-1 mx-sm-2`}
           onClick={stillInProgress}>
           <FAIcon name='trash-alt' />
         </IconButton>

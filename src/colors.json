@@ -1,0 +1,595 @@
+{
+  "aliceblue": {
+    "name": "aliceblue",
+    "rgbVal": [240, 248, 255]
+  },
+  "antiquewhite": {
+    "name": "antiquewhite",
+    "rgbVal": [250, 235, 215]
+  },
+  "aqua": {
+    "name": "aqua",
+    "rgbVal": [0, 255, 255]
+  },
+  "aquamarine": {
+    "name": "aquamarine",
+    "rgbVal": [127, 255, 212]
+  },
+  "azure": {
+    "name": "azure",
+    "rgbVal": [240, 255, 255]
+  },
+  "beige": {
+    "name": "beige",
+    "rgbVal": [245, 245, 220]
+  },
+  "bisque": {
+    "name": "bisque",
+    "rgbVal": [255, 228, 196]
+  },
+  "black": {
+    "name": "black",
+    "rgbVal": [0, 0, 0]
+  },
+  "blanchedalmond": {
+    "name": "blanchedalmond",
+    "rgbVal": [255, 235, 205]
+  },
+  "blue": {
+    "name": "blue",
+    "rgbVal": [0, 0, 255]
+  },
+  "blueviolet": {
+    "name": "blueviolet",
+    "rgbVal": [138, 43, 226]
+  },
+  "brown": {
+    "name": "brown",
+    "rgbVal": [165, 42, 42]
+  },
+  "burlywood": {
+    "name": "burlywood",
+    "rgbVal": [222, 184, 135]
+  },
+  "cadetblue": {
+    "name": "cadetblue",
+    "rgbVal": [95, 158, 160]
+  },
+  "chartreuse": {
+    "name": "chartreuse",
+    "rgbVal": [127, 255, 0]
+  },
+  "chocolate": {
+    "name": "chocolate",
+    "rgbVal": [210, 105, 30]
+  },
+  "coral": {
+    "name": "coral",
+    "rgbVal": [255, 127, 80]
+  },
+  "cornflowerblue": {
+    "name": "cornflowerblue",
+    "rgbVal": [100, 149, 237]
+  },
+  "cornsilk": {
+    "name": "cornsilk",
+    "rgbVal": [255, 248, 220]
+  },
+  "crimson": {
+    "name": "crimson",
+    "rgbVal": [220, 20, 60]
+  },
+  "cyan": {
+    "name": "cyan",
+    "rgbVal": [0, 255, 255]
+  },
+  "darkblue": {
+    "name": "darkblue",
+    "rgbVal": [0, 0, 139]
+  },
+  "darkcyan": {
+    "name": "darkcyan",
+    "rgbVal": [0, 139, 139]
+  },
+  "darkgoldenrod": {
+    "name": "darkgoldenrod",
+    "rgbVal": [184, 134, 11]
+  },
+  "darkgray": {
+    "name": "darkgray",
+    "rgbVal": [169, 169, 169]
+  },
+  "darkgreen": {
+    "name": "darkgreen",
+    "rgbVal": [0, 100, 0]
+  },
+  "darkgrey": {
+    "name": "darkgrey",
+    "rgbVal": [169, 169, 169]
+  },
+  "darkkhaki": {
+    "name": "darkkhaki",
+    "rgbVal": [189, 183, 107]
+  },
+  "darkmagenta": {
+    "name": "darkmagenta",
+    "rgbVal": [139, 0, 139]
+  },
+  "darkolivegreen": {
+    "name": "darkolivegreen",
+    "rgbVal": [85, 107, 47]
+  },
+  "darkorange": {
+    "name": "darkorange",
+    "rgbVal": [255, 140, 0]
+  },
+  "darkorchid": {
+    "name": "darkorchid",
+    "rgbVal": [153, 50, 204]
+  },
+  "darkred": {
+    "name": "darkred",
+    "rgbVal": [139, 0, 0]
+  },
+  "darksalmon": {
+    "name": "darksalmon",
+    "rgbVal": [233, 150, 122]
+  },
+  "darkseagreen": {
+    "name": "darkseagreen",
+    "rgbVal": [143, 188, 143]
+  },
+  "darkslateblue": {
+    "name": "darkslateblue",
+    "rgbVal": [72, 61, 139]
+  },
+  "darkslategray": {
+    "name": "darkslategray",
+    "rgbVal": [47, 79, 79]
+  },
+  "darkslategrey": {
+    "name": "darkslategrey",
+    "rgbVal": [47, 79, 79]
+  },
+  "darkturquoise": {
+    "name": "darkturquoise",
+    "rgbVal": [0, 206, 209]
+  },
+  "darkviolet": {
+    "name": "darkviolet",
+    "rgbVal": [148, 0, 211]
+  },
+  "deeppink": {
+    "name": "deeppink",
+    "rgbVal": [255, 20, 147]
+  },
+  "deepskyblue": {
+    "name": "deepskyblue",
+    "rgbVal": [0, 191, 255]
+  },
+  "dimgray": {
+    "name": "dimgray",
+    "rgbVal": [105, 105, 105]
+  },
+  "dimgrey": {
+    "name": "dimgrey",
+    "rgbVal": [105, 105, 105]
+  },
+  "dodgerblue": {
+    "name": "dodgerblue",
+    "rgbVal": [30, 144, 255]
+  },
+  "firebrick": {
+    "name": "firebrick",
+    "rgbVal": [178, 34, 34]
+  },
+  "floralwhite": {
+    "name": "floralwhite",
+    "rgbVal": [255, 250, 240]
+  },
+  "forestgreen": {
+    "name": "forestgreen",
+    "rgbVal": [34, 139, 34]
+  },
+  "fuchsia": {
+    "name": "fuchsia",
+    "rgbVal": [255, 0, 255]
+  },
+  "gainsboro": {
+    "name": "gainsboro",
+    "rgbVal": [220, 220, 220]
+  },
+  "ghostwhite": {
+    "name": "ghostwhite",
+    "rgbVal": [248, 248, 255]
+  },
+  "gold": {
+    "name": "gold",
+    "rgbVal": [255, 215, 0]
+  },
+  "goldenrod": {
+    "name": "goldenrod",
+    "rgbVal": [218, 165, 32]
+  },
+  "gray": {
+    "name": "gray",
+    "rgbVal": [128, 128, 128]
+  },
+  "green": {
+    "name": "green",
+    "rgbVal": [0, 128, 0]
+  },
+  "greenyellow": {
+    "name": "greenyellow",
+    "rgbVal": [173, 255, 47]
+  },
+  "grey": {
+    "name": "grey",
+    "rgbVal": [128, 128, 128]
+  },
+  "honeydew": {
+    "name": "honeydew",
+    "rgbVal": [240, 255, 240]
+  },
+  "hotpink": {
+    "name": "hotpink",
+    "rgbVal": [255, 105, 180]
+  },
+  "indianred": {
+    "name": "indianred",
+    "rgbVal": [205, 92, 92]
+  },
+  "indigo": {
+    "name": "indigo",
+    "rgbVal": [75, 0, 130]
+  },
+  "ivory": {
+    "name": "ivory",
+    "rgbVal": [255, 255, 240]
+  },
+  "khaki": {
+    "name": "khaki",
+    "rgbVal": [240, 230, 140]
+  },
+  "lavender": {
+    "name": "lavender",
+    "rgbVal": [230, 230, 250]
+  },
+  "lavenderblush": {
+    "name": "lavenderblush",
+    "rgbVal": [255, 240, 245]
+  },
+  "lawngreen": {
+    "name": "lawngreen",
+    "rgbVal": [124, 252, 0]
+  },
+  "lemonchiffon": {
+    "name": "lemonchiffon",
+    "rgbVal": [255, 250, 205]
+  },
+  "lightblue": {
+    "name": "lightblue",
+    "rgbVal": [173, 216, 230]
+  },
+  "lightcoral": {
+    "name": "lightcoral",
+    "rgbVal": [240, 128, 128]
+  },
+  "lightcyan": {
+    "name": "lightcyan",
+    "rgbVal": [224, 255, 255]
+  },
+  "lightgoldenrodyellow": {
+    "name": "lightgoldenrodyellow",
+    "rgbVal": [250, 250, 210]
+  },
+  "lightgray": {
+    "name": "lightgray",
+    "rgbVal": [211, 211, 211]
+  },
+  "lightgreen": {
+    "name": "lightgreen",
+    "rgbVal": [144, 238, 144]
+  },
+  "lightgrey": {
+    "name": "lightgrey",
+    "rgbVal": [211, 211, 211]
+  },
+  "lightpink": {
+    "name": "lightpink",
+    "rgbVal": [255, 182, 193]
+  },
+  "lightsalmon": {
+    "name": "lightsalmon",
+    "rgbVal": [255, 160, 122]
+  },
+  "lightseagreen": {
+    "name": "lightseagreen",
+    "rgbVal": [32, 178, 170]
+  },
+  "lightskyblue": {
+    "name": "lightskyblue",
+    "rgbVal": [135, 206, 250]
+  },
+  "lightslategray": {
+    "name": "lightslategray",
+    "rgbVal": [119, 136, 153]
+  },
+  "lightslategrey": {
+    "name": "lightslategrey",
+    "rgbVal": [119, 136, 153]
+  },
+  "lightsteelblue": {
+    "name": "lightsteelblue",
+    "rgbVal": [176, 196, 222]
+  },
+  "lightyellow": {
+    "name": "lightyellow",
+    "rgbVal": [255, 255, 224]
+  },
+  "lime": {
+    "name": "lime",
+    "rgbVal": [0, 255, 0]
+  },
+  "limegreen": {
+    "name": "limegreen",
+    "rgbVal": [50, 205, 50]
+  },
+  "linen": {
+    "name": "linen",
+    "rgbVal": [250, 240, 230]
+  },
+  "magenta": {
+    "name": "magenta",
+    "rgbVal": [255, 0, 255]
+  },
+  "maroon": {
+    "name": "maroon",
+    "rgbVal": [128, 0, 0]
+  },
+  "mediumaquamarine": {
+    "name": "mediumaquamarine",
+    "rgbVal": [102, 205, 170]
+  },
+  "mediumblue": {
+    "name": "mediumblue",
+    "rgbVal": [0, 0, 205]
+  },
+  "mediumorchid": {
+    "name": "mediumorchid",
+    "rgbVal": [186, 85, 211]
+  },
+  "mediumpurple": {
+    "name": "mediumpurple",
+    "rgbVal": [147, 112, 219]
+  },
+  "mediumseagreen": {
+    "name": "mediumseagreen",
+    "rgbVal": [60, 179, 113]
+  },
+  "mediumslateblue": {
+    "name": "mediumslateblue",
+    "rgbVal": [123, 104, 238]
+  },
+  "mediumspringgreen": {
+    "name": "mediumspringgreen",
+    "rgbVal": [0, 250, 154]
+  },
+  "mediumturquoise": {
+    "name": "mediumturquoise",
+    "rgbVal": [72, 209, 204]
+  },
+  "mediumvioletred": {
+    "name": "mediumvioletred",
+    "rgbVal": [199, 21, 133]
+  },
+  "midnightblue": {
+    "name": "midnightblue",
+    "rgbVal": [25, 25, 112]
+  },
+  "mintcream": {
+    "name": "mintcream",
+    "rgbVal": [245, 255, 250]
+  },
+  "mistyrose": {
+    "name": "mistyrose",
+    "rgbVal": [255, 228, 225]
+  },
+  "moccasin": {
+    "name": "moccasin",
+    "rgbVal": [255, 228, 181]
+  },
+  "navajowhite": {
+    "name": "navajowhite",
+    "rgbVal": [255, 222, 173]
+  },
+  "navy": {
+    "name": "navy",
+    "rgbVal": [0, 0, 128]
+  },
+  "oldlace": {
+    "name": "oldlace",
+    "rgbVal": [253, 245, 230]
+  },
+  "olive": {
+    "name": "olive",
+    "rgbVal": [128, 128, 0]
+  },
+  "olivedrab": {
+    "name": "olivedrab",
+    "rgbVal": [107, 142, 35]
+  },
+  "orange": {
+    "name": "orange",
+    "rgbVal": [255, 165, 0]
+  },
+  "orangered": {
+    "name": "orangered",
+    "rgbVal": [255, 69, 0]
+  },
+  "orchid": {
+    "name": "orchid",
+    "rgbVal": [218, 112, 214]
+  },
+  "palegoldenrod": {
+    "name": "palegoldenrod",
+    "rgbVal": [238, 232, 170]
+  },
+  "palegreen": {
+    "name": "palegreen",
+    "rgbVal": [152, 251, 152]
+  },
+  "paleturquoise": {
+    "name": "paleturquoise",
+    "rgbVal": [175, 238, 238]
+  },
+  "palevioletred": {
+    "name": "palevioletred",
+    "rgbVal": [219, 112, 147]
+  },
+  "papayawhip": {
+    "name": "papayawhip",
+    "rgbVal": [255, 239, 213]
+  },
+  "peachpuff": {
+    "name": "peachpuff",
+    "rgbVal": [255, 218, 185]
+  },
+  "peru": {
+    "name": "peru",
+    "rgbVal": [205, 133, 63]
+  },
+  "pink": {
+    "name": "pink",
+    "rgbVal": [255, 192, 203]
+  },
+  "plum": {
+    "name": "plum",
+    "rgbVal": [221, 160, 221]
+  },
+  "powderblue": {
+    "name": "powderblue",
+    "rgbVal": [176, 224, 230]
+  },
+  "purple": {
+    "name": "purple",
+    "rgbVal": [128, 0, 128]
+  },
+  "red": {
+    "name": "red",
+    "rgbVal": [255, 0, 0]
+  },
+  "rosybrown": {
+    "name": "rosybrown",
+    "rgbVal": [188, 143, 143]
+  },
+  "royalblue": {
+    "name": "royalblue",
+    "rgbVal": [65, 105, 225]
+  },
+  "saddlebrown": {
+    "name": "saddlebrown",
+    "rgbVal": [139, 69, 19]
+  },
+  "salmon": {
+    "name": "salmon",
+    "rgbVal": [250, 128, 114]
+  },
+  "sandybrown": {
+    "name": "sandybrown",
+    "rgbVal": [244, 164, 96]
+  },
+  "seagreen": {
+    "name": "seagreen",
+    "rgbVal": [46, 139, 87]
+  },
+  "seashell": {
+    "name": "seashell",
+    "rgbVal": [255, 245, 238]
+  },
+  "sienna": {
+    "name": "sienna",
+    "rgbVal": [160, 82, 45]
+  },
+  "silver": {
+    "name": "silver",
+    "rgbVal": [192, 192, 192]
+  },
+  "skyblue": {
+    "name": "skyblue",
+    "rgbVal": [135, 206, 235]
+  },
+  "slateblue": {
+    "name": "slateblue",
+    "rgbVal": [106, 90, 205]
+  },
+  "slategray": {
+    "name": "slategray",
+    "rgbVal": [112, 128, 144]
+  },
+  "slategrey": {
+    "name": "slategrey",
+    "rgbVal": [112, 128, 144]
+  },
+  "snow": {
+    "name": "snow",
+    "rgbVal": [255, 250, 250]
+  },
+  "springgreen": {
+    "name": "springgreen",
+    "rgbVal": [0, 255, 127]
+  },
+  "steelblue": {
+    "name": "steelblue",
+    "rgbVal": [70, 130, 180]
+  },
+  "tan": {
+    "name": "tan",
+    "rgbVal": [210, 180, 140]
+  },
+  "teal": {
+    "name": "teal",
+    "rgbVal": [0, 128, 128]
+  },
+  "thistle": {
+    "name": "thistle",
+    "rgbVal": [216, 191, 216]
+  },
+  "tomato": {
+    "name": "tomato",
+    "rgbVal": [255, 99, 71]
+  },
+  "transparent": {
+    "name": "transparent",
+    "rgbVal": [0, 0, 0, 0]
+  },
+  "turquoise": {
+    "name": "turquoise",
+    "rgbVal": [64, 224, 208]
+  },
+  "violet": {
+    "name": "violet",
+    "rgbVal": [238, 130, 238]
+  },
+  "wheat": {
+    "name": "wheat",
+    "rgbVal": [245, 222, 179]
+  },
+  "white": {
+    "name": "white",
+    "rgbVal": [255, 255, 255]
+  },
+  "whitesmoke": {
+    "name": "whitesmoke",
+    "rgbVal": [245, 245, 245]
+  },
+  "yellow": {
+    "name": "yellow",
+    "rgbVal": [255, 255, 0]
+  },
+  "yellowgreen": {
+    "name": "yellowgreen",
+    "rgbVal": [154, 205, 50]
+  },
+  "rebeccapurple": [102, 51, 153]
+}

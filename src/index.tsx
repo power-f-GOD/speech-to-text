@@ -11,12 +11,10 @@ import App from './App';
 export const userDeviceIsMobile = /(Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone)/i.test(
   window.navigator.userAgent
 );
+export const isMac = /Mac(\sOS)?/i.test(window.navigator.userAgent);
 
-if (userDeviceIsMobile) {
-  document.body.classList.add('mobile');
-} else {
-  document.body.classList.add('desktop');
-}
+document.body.classList.add(userDeviceIsMobile ? 'mobile' : 'desktop');
+document.body.classList.add(isMac ? 'is-mac' : 'is-pc');
 
 ReactDOM.render(
   <StylesProvider injectFirst>

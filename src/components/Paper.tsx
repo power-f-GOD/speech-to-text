@@ -1,23 +1,9 @@
-import React, {
-  useState,
-  useCallback,
-  useEffect,
-  useRef,
-  FormEvent,
-  MouseEvent
-} from 'react';
+import React, { useState, useCallback, useEffect, FormEvent } from 'react';
 
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
-import IconButton from '@material-ui/core/IconButton';
-import MicIcon from '@material-ui/icons/Mic';
-import MicOffIcon from '@material-ui/icons/MicOff';
-
-import FAIcon from './Icon';
 import Header from './Header';
-import TextArea, { editorRef, interimTranscriptRef } from './TextArea';
+import TextArea, { editorRef } from './TextArea';
 import Footer from './Footer';
 
 import { getSelectionRange } from '../utils/misc';

@@ -1,0 +1,38 @@
+.text-area-container {
+  // @include debugger();
+  position: relative;
+  overflow-y: auto;
+  background: inherit;
+  max-height: calc(100% - 10rem);
+  height: 100%;
+  border-bottom: 0.0625rem solid $theme-primary-v7;
+  border-top: 0.0625rem solid $theme-primary-v7;
+}
+
+.text-area {
+  display: block;
+  padding: 0.35rem 0.75rem 0 2.25rem;
+  line-height: 2rem;
+  background-image: linear-gradient(
+      $theme-primary-v7 0.0625rem,
+      transparent 0.0625rem
+    ),
+    linear-gradient($theme-primary-v7 0.0625rem, transparent 0.0625rem),
+    linear-gradient(#e0e0e0 0.0625rem, white 0);
+  background-size: 0.0625rem 0.0625rem, 0.0625rem 0.0625rem, 100% 2rem;
+  background-repeat: repeat-y;
+  font-weight: 500;
+  position: relative;
+  min-height: 100%;
+  white-space: pre-wrap;
+  background-position: 1.5rem 0, 1.7rem 0, 0 3.95rem;
+}
+
+.interim-transcript {
+  color: #bbb;
+  pointer-events: none;
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 2.25rem;
+}

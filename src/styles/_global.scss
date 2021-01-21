@@ -24,7 +24,7 @@ body,
 body {
   padding: 0 !important;
 
-  &.desktop {
+  &.desktop.is-pc {
     [class*='PrivateSwipeArea'] {
       display: none;
     }
@@ -33,15 +33,18 @@ body {
     .custom-scroll-bar,
     .MuiDrawer-paper {
       &::-webkit-scrollbar {
-        width: 0.75em;
+        width: 0.5em;
+        height: 0.5em;
       }
 
       &::-webkit-scrollbar-track {
-        background: $theme-primary-v6;
+        background: rgba(0, 0, 0, 0.15);
+        border-radius: 0.5em;
       }
 
       &::-webkit-scrollbar-thumb {
-        background: $theme-primary-v3 !important;
+        background: rgba($prim-r, $prim-g, $prim-b, 0.75) !important;
+        border-radius: 0.5em;
       }
     }
   }
@@ -179,6 +182,18 @@ h6 {
 
 .w-100 {
   width: 100% !important;
+}
+
+.w-auto {
+  width: auto !important;
+}
+
+.text-ellipsis {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .theme-color-text {

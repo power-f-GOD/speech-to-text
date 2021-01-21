@@ -14,7 +14,7 @@ const TextArea = (props: {
   const { interimTranscript, finalTranscript, triggerEdit } = props;
 
   return (
-    <Container fluid className='text-area-container px-0'>
+    <Container fluid className='text-area-container custom-scroll-bar px-0'>
       <Row
         className='text-area'
         contentEditable={true}

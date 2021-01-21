@@ -1,25 +1,15 @@
-import React, {
-  useState,
-  useCallback,
-  useEffect,
-  FormEvent,
-  useRef,
-  MouseEvent
-} from 'react';
+import React, { useState, useCallback, MouseEvent } from 'react';
 
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
-import MicIcon from '@material-ui/icons/Mic';
-import MicOffIcon from '@material-ui/icons/MicOff';
 import FormatColorTextRoundedIcon from '@material-ui/icons/FormatColorTextRounded';
 import FormatColorFillRoundedIcon from '@material-ui/icons/FormatColorFillRounded';
 
 import FAIcon from './Icon';
-import { getSelectionRange } from '../utils/misc';
+
+import { colorsArray } from '../utils/misc';
 
 type AppFontTypes =
   | 'Sans-serif'
@@ -40,7 +30,6 @@ const Header = (props: {
   stillInProgress?(e: MouseEvent<HTMLButtonElement>): void;
 }) => {
   const { stillInProgress } = props;
-
   const [selectedFont, setSelectedFont] = useState<AppFontTypes>('Quicksand');
 
   const makeSelectionBold = useCallback((e: MouseEvent<HTMLButtonElement>) => {
@@ -72,10 +61,21 @@ const Header = (props: {
     []
   );
 
+  const handleFontColorSelect = useCallback(
+    (color: string) => (e: MouseEvent<HTMLButtonElement>) => {
+      const button = e.currentTarget as HTMLButtonElement;
+
+      // setSelectedFontColor(color);
+      document.execCommand('foreColor', false, color);
+      button.blur();
+    },
+    []
+  );
+
   return (
     <Container fluid as='header'>
-      <h1>Ruth's Speech-to-Text App</h1>
-      <Container className='mx-0 tool-bar justify-content-start my-2'>
+      <h1 className='text-ellipsis'>Ruth's Speech-to-Text App</h1>
+      <Container className='tool-bar custom-scroll-bar mx-0 d-flex justify-content-start my-2'>
         <IconButton
           className={`tool-bar__button mr-1`}
           onClick={makeSelectionBold}>
@@ -98,7 +98,7 @@ const Header = (props: {
             <span className='d-inline-block'>{selectedFont}</span>
             <FAIcon name='chevron-down' fontSize='0.75em' />
           </Button>
-          <Container className='fonts-container slide-in-bottom'>
+          <Container className='menu slide-in-bottom'>
             {fonts.map((font) => (
               <Button
                 onClick={handleFontSelect(font)}
@@ -110,11 +110,21 @@ const Header = (props: {
             ))}
           </Container>
         </Container>
-        <IconButton
-          className={`tool-bar__button ml-1 mr-1`}
-          onClick={stillInProgress}>
-          <FormatColorTextRoundedIcon />
-        </IconButton>
+        <Container className='font-color-select-container ml-1 mr-1'>
+          <IconButton className={`tool-bar__button`} onClick={undefined}>
+            <FormatColorTextRoundedIcon />
+          </IconButton>
+          <Container className='menu slide-in-bottom custom-scroll-bar'>
+            {colorsArray.map((color) => (
+              <IconButton
+                className={`font-color p-1`}
+                onClick={handleFontColorSelect(color)}
+                key={color}>
+                <FAIcon name='circle' fontSize='0.75em' color={color} />
+              </IconButton>
+            ))}
+          </Container>
+        </Container>
         <IconButton
           className={`tool-bar__button mr-1`}
           onClick={stillInProgress}>

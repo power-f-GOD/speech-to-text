@@ -1,3 +1,5 @@
+import colors from '../colors.json';
+
 export const getSelectionRange = (
   element: HTMLElement,
   collapseRange?: boolean
@@ -17,3 +19,25 @@ export const getSelectionRange = (
 
   return Promise.resolve(selection);
 };
+
+const returnColoursArray = () => {
+  const _colors = colors as any;
+  const resultantArray = [] as { name: string; rgb: string }[];
+
+  for (const name in _colors) {
+    const rgb = _colors[name].rgbVal;
+
+    if (rgb) {
+      resultantArray.push({
+        name,
+        rgb: `rgb(${rgb.join(',')})`
+      });
+    }
+  }
+
+  return resultantArray;
+};
+
+export const colorsArray = Array.from(
+  new Set(returnColoursArray().map((color) => color.rgb))
+);
