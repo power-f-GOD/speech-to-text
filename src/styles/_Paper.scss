@@ -53,7 +53,7 @@
   button {
     display: flex;
     width: 100%;
-    font-size: inherit;
+    font-size: 0.95rem;
     height: 2.25rem;
     justify-content: flex-start;
   }
@@ -79,7 +79,8 @@
 .fonts-container {
   position: absolute;
   width: inherit;
-  max-width: inherit;
+  max-width: 50vw;
+  min-width: 8rem;
   border-radius: 0.5rem;
   overflow: hidden;
   margin-top: 0.25rem;
@@ -125,18 +126,9 @@
   background-repeat: repeat-y;
   font-weight: 500;
   position: relative;
+  min-height: 100%;
   white-space: pre-wrap;
-  border-bottom: 0.0625rem solid #e0e0e0;
   background-position: 1.5rem 0, 1.7rem 0, 0 3.95rem;
-
-  &::before {
-    @include before-or-after(
-      $bg: white,
-      $zi: 0,
-      $h: 0.45rem,
-      $t: calc(100% - 0.35rem)
-    );
-  }
 }
 
 .interim-transcript {
@@ -165,7 +157,11 @@ footer.footer {
     min-height: 2.75rem;
     min-width: 2.75rem;
     color: $theme-primary-v5;
-    background-color: rgba($prim-r, $prim-g, $prim-b, 0.1);
+
+    &:hover,
+    &:focus {
+      background-color: rgba($prim-r, $prim-g, $prim-b, 0.1);
+    }
   }
 }
 
