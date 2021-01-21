@@ -34,9 +34,9 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "sass": "node-sass -w --output-style=compressed src/styles/index.scss src/styles/index.min.css",
-    "add:dev": "git stash && git checkout dev && git stash apply && git add .",
-    "rebase:dev": "git stash && git checkout master && git pull origin master && git checkout dev && git rebase master",
-    "push:dev": "npm run rebase:dev && git pull && git push",
+    "add": "git stash && git checkout dev && git stash apply && git add .",
+    "merge:dev": "git stash && git checkout master && git pull origin master && git checkout dev && git merge master",
+    "push:dev": "npm run merge:dev && git pull && git push",
     "deploy": "git checkout master && git pull origin master && git merge dev && git push origin master"
   },
   "eslintConfig": {
