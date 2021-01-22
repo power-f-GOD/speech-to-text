@@ -75,7 +75,7 @@ const Header = (props: {
   return (
     <Container fluid as='header'>
       <h1 className='text-ellipsis'>Ruth's Speech-to-Text App</h1>
-      <Container className='tool-bar custom-scroll-bar mx-0 d-flex justify-content-start my-2'>
+      <Container className='tool-bar px-1 custom-scroll-bar mx-0 d-flex align-items-center my-1'>
         <IconButton
           className={`tool-bar__button mr-1`}
           onClick={makeSelectionBold}>

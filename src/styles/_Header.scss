@@ -1,3 +1,24 @@
+header {
+  // height: 5.75rem;
+  overflow: visible;
+  padding: 0 !important;
+  position: relative;
+  z-index: 10;
+
+  .tool-bar__button {
+    border-radius: 0.5rem;
+  }
+}
+
+h1 {
+  font-size: 1.05rem;
+  color: $theme-primary-v4;
+  text-align: center;
+  width: auto;
+  padding: 0.5rem 0.4rem;
+  background-color: rgba($prim-r, $prim-g, $prim-b, 0.3);
+}
+
 .tool-bar {
   overflow-x: auto;
 }
@@ -11,7 +32,8 @@
 .font-select-container {
   // @include debugger();
   max-width: 30%;
-  width: 9.5rem;
+  min-width: 7rem;
+  width: 9rem;
   display: inline-block;
 
   button {
@@ -48,7 +70,7 @@
   position: absolute;
   width: inherit;
   max-width: 50vw;
-  min-width: 8rem;
+  min-width: 9.75rem;
   border-radius: 0.5rem;
   overflow: hidden;
   margin-top: 0.25rem;
