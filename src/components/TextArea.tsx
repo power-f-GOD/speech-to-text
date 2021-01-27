@@ -14,26 +14,28 @@ const TextArea = (props: {
   const { interimTranscript, finalTranscript, triggerEdit } = props;
 
   return (
-    <Container fluid className='text-area-container custom-scroll-bar px-0'>
-      <Row
-        className='text-area'
-        contentEditable={true}
-        suppressContentEditableWarning={true}
-        onInput={triggerEdit}
-        onCut={triggerEdit}
-        onPaste={triggerEdit}
-        dangerouslySetInnerHTML={{
-          __html: finalTranscript
-            ? finalTranscript
-            : interimTranscript
-            ? ''
-            : 'Content here is editable... \n\nNB: Say "new line/paragraph" for a new line or paragraph; "full stop" for a full stop.'
-        }}
-        ref={editorRef as any}></Row>
+    <>
+      <Container fluid className='text-area-container custom-scroll-bar px-0'>
+        <Row
+          className='text-area'
+          contentEditable={true}
+          suppressContentEditableWarning={true}
+          onInput={triggerEdit}
+          onCut={triggerEdit}
+          onPaste={triggerEdit}
+          dangerouslySetInnerHTML={{
+            __html: finalTranscript
+              ? finalTranscript
+              : interimTranscript
+              ? ''
+              : 'Content here is editable... \n\nNB: Say "new line/paragraph" for a new line or paragraph; "full stop" for a full stop.'
+          }}
+          ref={editorRef as any}></Row>
+      </Container>
       <div className='interim-transcript' ref={interimTranscriptRef as any}>
         {interimTranscript ? interimTranscript : ''}
       </div>
-    </Container>
+    </>
   );
 };
 

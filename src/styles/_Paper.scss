@@ -7,8 +7,17 @@
   margin: 2.5vh auto;
   max-width: 100%;
   overflow-x: hidden;
-
+  position: relative;
   border-radius: 1.75rem;
   background-color: white;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+}
+
+.interim-transcript {
+  color: #999;
+  pointer-events: none;
+  display: inline-block;
+  position: absolute;
+  bottom: 4.25rem;
+  left: 2.25rem;
 }

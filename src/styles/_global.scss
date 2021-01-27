@@ -207,6 +207,11 @@ div {
   }
 }
 
+.MuiTooltip-popper * {
+  font-family: inherit;
+  font-size: 0.7em;
+}
+
 .MuiOutlinedInput-root {
   border-radius: 0.35rem;
   background: #f8f8f8;

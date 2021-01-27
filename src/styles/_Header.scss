@@ -8,15 +8,15 @@ header {
   .tool-bar__button {
     border-radius: 0.5rem;
   }
-}
 
-h1 {
-  font-size: 1.05rem;
-  color: $theme-primary-v4;
-  text-align: center;
-  width: auto;
-  padding: 0.5rem 0.4rem;
-  background-color: rgba($prim-r, $prim-g, $prim-b, 0.3);
+  h1 {
+    font-size: 1.05rem;
+    color: $theme-primary-v4;
+    text-align: center;
+    width: auto;
+    padding: 0.5rem 0.4rem;
+    background-color: rgba($prim-r, $prim-g, $prim-b, 0.3);
+  }
 }
 
 .tool-bar {
@@ -112,7 +112,7 @@ h1 {
 }
 
 body.desktop.is-pc {
-  .font-color-select-container {
+  .color-select-container {
     .menu {
       max-width: 8.75rem;
     }

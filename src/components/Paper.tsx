@@ -122,7 +122,7 @@ const Paper = () => {
 
   return (
     <Container className='Paper scale-in'>
-      <Header stillInProgress={stillInProgress} />
+      <Header />
       <TextArea
         interimTranscript={interimTranscript}
         finalTranscript={finalTranscript}

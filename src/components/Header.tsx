@@ -4,12 +4,13 @@ import Container from 'react-bootstrap/Container';
 
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
+import Tooltip from '@material-ui/core/Tooltip';
 import FormatColorTextRoundedIcon from '@material-ui/icons/FormatColorTextRounded';
 
 import FAIcon from './Icon';
 
-import { colorsArray, getSelectionRange } from '../utils/misc';
-import { editorRef } from './TextArea';
+import { colorsArray } from '../utils/misc';
+import { interimTranscriptRef } from './TextArea';
 
 type AppFontTypes =
   | 'Sans-serif'
@@ -26,11 +27,10 @@ const fonts: AppFontTypes[] = [
   'Dancing Script'
 ];
 
-const Header = (props: {
-  stillInProgress?(e?: MouseEvent<HTMLButtonElement>): void;
-}) => {
-  const { stillInProgress } = props;
+const Header = () => {
   const [selectedFont, setSelectedFont] = useState<AppFontTypes>('Quicksand');
+
+  const fileInputRef = React.useRef<HTMLInputElement | null>(null);
 
   const makeSelectionBold = useCallback((e: MouseEvent<HTMLButtonElement>) => {
     document.execCommand('bold');
@@ -92,42 +92,89 @@ const Header = (props: {
   );
 
   const handleLinkifyClick = useCallback((e: MouseEvent<HTMLButtonElement>) => {
-    if (stillInProgress) stillInProgress();
+    let selection = window.getSelection()?.toString();
 
-    if (3 > 2) return;
-    getSelectionRange(editorRef.current!).then((selection) => {
-      console.log(selection);
-      document.execCommand('copy');
-      // selection?.removeAllRanges();
-    });
-  }, [stillInProgress]);
+    if (
+      selection &&
+      /[a-z0-9-_]+\.[a-z0-9-_]+/.test(selection) &&
+      !/\s+/.test(selection)
+    ) {
+      if (!/^https?:\/\//.test(selection)) {
+        selection = 'https://' + selection;
+      }
+
+      document.execCommand('createLink', false, selection);
+    } else {
+      interimTranscriptRef.current!.textContent =
+        'Selection not a valid URI/URL!';
+      setTimeout(() => {
+        interimTranscriptRef.current!.textContent = '';
+      }, 3000);
+    }
+  }, []);
+
+  const handleInsertImage = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      console.log(e.currentTarget.files);
+
+      if (e.currentTarget.files?.length) {
+        document.execCommand(
+          'insertImage',
+          false,
+          URL.createObjectURL(e.currentTarget.files[0])
+        );
+      }
+    },
+    []
+  );
+
+  const programmaticallyClickFileInput = useCallback(() => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  }, []);
 
   return (
     <Container fluid as='header'>
       <h1 className='text-ellipsis'>Ruth's Speech-to-Text App</h1>
       <Container className='tool-bar px-1 custom-scroll-bar mx-0 d-flex align-items-center my-1'>
-        <IconButton
-          className={`tool-bar__button mr-1`}
-          onClick={makeSelectionBold}>
-          <FAIcon name='bold' fontSize='0.75em' />
-        </IconButton>
-        <IconButton
-          className={`tool-bar__button mr-1`}
-          onClick={makeSelectionItalic}>
-          <FAIcon name='italic' fontSize='0.75em' />
-        </IconButton>
-        <IconButton
-          className={`tool-bar__button mr-1`}
-          onClick={makeSelectionUnderlined}>
-          <FAIcon name='underline' fontSize='0.75em' />
-        </IconButton>
+        {/* Bold */}
+        <Tooltip title='Embolden text'>
+          <IconButton
+            className={`tool-bar__button mr-1`}
+            onClick={makeSelectionBold}>
+            <FAIcon name='bold' fontSize='0.75em' />
+          </IconButton>
+        </Tooltip>
+
+        {/* Italic */}
+        <Tooltip title='Italicize text'>
+          <IconButton
+            className={`tool-bar__button mr-1`}
+            onClick={makeSelectionItalic}>
+            <FAIcon name='italic' fontSize='0.75em' />
+          </IconButton>
+        </Tooltip>
+
+        {/* Underline */}
+        <Tooltip title='Underline text'>
+          <IconButton
+            className={`tool-bar__button mr-1`}
+            onClick={makeSelectionUnderlined}>
+            <FAIcon name='underline' fontSize='0.75em' />
+          </IconButton>
+        </Tooltip>
+
+        {/* Font select */}
         <Container className='font-select-container mx-1'>
-          <Button
-            className='select-font__button justify-content-between'
-            style={{ fontFamily: selectedFont }}>
-            <span className='d-inline-block'>{selectedFont}</span>
-            <FAIcon name='chevron-down' fontSize='0.75em' />
-          </Button>
+          <Tooltip title='Select Font'>
+            <Button
+              className='select-font__button justify-content-between'
+              style={{ fontFamily: selectedFont }}>
+              <span className='d-inline-block'>{selectedFont}</span>
+              <FAIcon name='chevron-down' fontSize='0.75em' />
+            </Button>
+          </Tooltip>
           <Container className='menu slide-in-bottom'>
             {fonts.map((font) => (
               <Button
@@ -140,10 +187,14 @@ const Header = (props: {
             ))}
           </Container>
         </Container>
-        <Container className='color-select-container ml-1 mr-1'>
-          <IconButton className={`tool-bar__button`}>
-            <FormatColorTextRoundedIcon />
-          </IconButton>
+
+        {/* Font Color select */}
+        <Container className='color-select-container ml-1 mr-0'>
+          <Tooltip title='Select Font Color'>
+            <IconButton className={`tool-bar__button`}>
+              <FormatColorTextRoundedIcon />
+            </IconButton>
+          </Tooltip>
           <Container className='menu slide-in-bottom custom-scroll-bar'>
             {colorsArray.map((color) => (
               <IconButton
@@ -155,10 +206,14 @@ const Header = (props: {
             ))}
           </Container>
         </Container>
-        <Container className='color-select-container ml-1 mr-1'>
-          <IconButton className={`tool-bar__button mr-1`}>
-            <FAIcon name='highlighter' fontSize='0.75em' />
-          </IconButton>
+
+        {/* Font Hilite Color select */}
+        <Container className='color-select-container ml-1 mr-0'>
+          <Tooltip title='Highlight text'>
+            <IconButton className={`tool-bar__button mr-1`}>
+              <FAIcon name='highlighter' fontSize='0.75em' />
+            </IconButton>
+          </Tooltip>
           <Container className='menu slide-in-bottom custom-scroll-bar'>
             {colorsArray.map((color) => (
               <IconButton
@@ -171,26 +226,46 @@ const Header = (props: {
           </Container>
         </Container>
 
-        <IconButton
-          className={`tool-bar__button mr-1`}
-          onClick={handleListClick(true)}>
-          <FAIcon name='list-ol' fontSize='0.75em' />
-        </IconButton>
-        <IconButton
-          className={`tool-bar__button mr-1`}
-          onClick={handleListClick(false)}>
-          <FAIcon name='list-ul' fontSize='0.75em' />
-        </IconButton>
-        <IconButton
-          className={`tool-bar__button mr-1`}
-          onClick={stillInProgress}>
-          <FAIcon name='image' fontSize='0.75em' />
-        </IconButton>
-        <IconButton
-          className={`tool-bar__button mr-1`}
-          onClick={handleLinkifyClick}>
-          <FAIcon name='link' fontSize='0.75em' />
-        </IconButton>
+        {/* Ordered List */}
+        <Tooltip title='Number List'>
+          <IconButton
+            className={`tool-bar__button mr-1`}
+            onClick={handleListClick(true)}>
+            <FAIcon name='list-ol' fontSize='0.75em' />
+          </IconButton>
+        </Tooltip>
+
+        {/* Unordered List */}
+        <Tooltip title='Bullet List'>
+          <IconButton
+            className={`tool-bar__button mr-1`}
+            onClick={handleListClick(false)}>
+            <FAIcon name='list-ul' fontSize='0.75em' />
+          </IconButton>
+        </Tooltip>
+
+        {/* Insert Image */}
+        <Tooltip title='Insert image'>
+          <IconButton
+            className={`tool-bar__button mr-1`}
+            onClick={programmaticallyClickFileInput}>
+            <FAIcon name='image' fontSize='0.75em' />
+          </IconButton>
+        </Tooltip>
+        <input
+          type='file'
+          className='d-none'
+          onChange={handleInsertImage}
+          ref={fileInputRef}
+        />
+        {/* Linkify */}
+        <Tooltip title='Linkify text'>
+          <IconButton
+            className={`tool-bar__button mr-1`}
+            onClick={handleLinkifyClick}>
+            <FAIcon name='link' fontSize='0.75em' />
+          </IconButton>
+        </Tooltip>
       </Container>
     </Container>
   );
