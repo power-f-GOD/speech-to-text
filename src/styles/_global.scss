@@ -98,6 +98,11 @@ hr {
   background: $theme-primary;
 }
 
+ol,
+ul {
+  margin: 0;
+}
+
 h1,
 h2,
 h3,
@@ -136,38 +141,6 @@ h5 {
 
 h6 {
   font-size: 1rem;
-}
-
-.logo {
-  color: white !important;
-  padding: 0.15em;
-  display: block;
-  font-size: 1.25rem;
-  font-weight: 900;
-  border-radius: 2rem;
-  margin: 0.15rem 0 !important;
-  min-width: 10rem;
-  margin-left: -0.45rem !important;
-  border: 1px solid transparent;
-
-  img {
-    width: 2.5em;
-    border-radius: 50%;
-    filter: hue-rotate(-10deg) brightness(90%) contrast(120%);
-  }
-
-  a {
-    color: #eee;
-    font-size: inherit;
-
-    &.active {
-      color: $theme-primary-v9;
-    }
-  }
-
-  &:focus-within {
-    border: 1px solid $theme-primary-v8;
-  }
 }
 
 .container,

@@ -5,11 +5,11 @@ import Container from 'react-bootstrap/Container';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import FormatColorTextRoundedIcon from '@material-ui/icons/FormatColorTextRounded';
-import FormatColorFillRoundedIcon from '@material-ui/icons/FormatColorFillRounded';
 
 import FAIcon from './Icon';
 
-import { colorsArray } from '../utils/misc';
+import { colorsArray, getSelectionRange } from '../utils/misc';
+import { editorRef } from './TextArea';
 
 type AppFontTypes =
   | 'Sans-serif'
@@ -27,7 +27,7 @@ const fonts: AppFontTypes[] = [
 ];
 
 const Header = (props: {
-  stillInProgress?(e: MouseEvent<HTMLButtonElement>): void;
+  stillInProgress?(e?: MouseEvent<HTMLButtonElement>): void;
 }) => {
   const { stillInProgress } = props;
   const [selectedFont, setSelectedFont] = useState<AppFontTypes>('Quicksand');
@@ -65,12 +65,42 @@ const Header = (props: {
     (color: string) => (e: MouseEvent<HTMLButtonElement>) => {
       const button = e.currentTarget as HTMLButtonElement;
 
-      // setSelectedFontColor(color);
       document.execCommand('foreColor', false, color);
       button.blur();
     },
     []
   );
+
+  const handleFontHilite = useCallback(
+    (color: string) => (e: MouseEvent<HTMLButtonElement>) => {
+      const button = e.currentTarget as HTMLButtonElement;
+
+      document.execCommand('styleWithCSS', true);
+      document.execCommand('hiliteColor', false, color);
+      button.blur();
+    },
+    []
+  );
+
+  const handleListClick = useCallback(
+    (ordered: boolean) => (e: MouseEvent<HTMLButtonElement>) => {
+      document.execCommand(
+        ordered ? 'insertOrderedList' : 'insertUnorderedList'
+      );
+    },
+    []
+  );
+
+  const handleLinkifyClick = useCallback((e: MouseEvent<HTMLButtonElement>) => {
+    if (stillInProgress) stillInProgress();
+
+    if (3 > 2) return;
+    getSelectionRange(editorRef.current!).then((selection) => {
+      console.log(selection);
+      document.execCommand('copy');
+      // selection?.removeAllRanges();
+    });
+  }, [stillInProgress]);
 
   return (
     <Container fluid as='header'>
@@ -110,8 +140,8 @@ const Header = (props: {
             ))}
           </Container>
         </Container>
-        <Container className='font-color-select-container ml-1 mr-1'>
-          <IconButton className={`tool-bar__button`} onClick={undefined}>
+        <Container className='color-select-container ml-1 mr-1'>
+          <IconButton className={`tool-bar__button`}>
             <FormatColorTextRoundedIcon />
           </IconButton>
           <Container className='menu slide-in-bottom custom-scroll-bar'>
@@ -125,19 +155,30 @@ const Header = (props: {
             ))}
           </Container>
         </Container>
+        <Container className='color-select-container ml-1 mr-1'>
+          <IconButton className={`tool-bar__button mr-1`}>
+            <FAIcon name='highlighter' fontSize='0.75em' />
+          </IconButton>
+          <Container className='menu slide-in-bottom custom-scroll-bar'>
+            {colorsArray.map((color) => (
+              <IconButton
+                className={`font-color p-1`}
+                onClick={handleFontHilite(color)}
+                key={color}>
+                <FAIcon name='circle' fontSize='0.75em' color={color} />
+              </IconButton>
+            ))}
+          </Container>
+        </Container>
+
         <IconButton
           className={`tool-bar__button mr-1`}
-          onClick={stillInProgress}>
-          <FormatColorFillRoundedIcon />
-        </IconButton>
-        <IconButton
-          className={`tool-bar__button mr-1`}
-          onClick={stillInProgress}>
+          onClick={handleListClick(true)}>
           <FAIcon name='list-ol' fontSize='0.75em' />
         </IconButton>
         <IconButton
           className={`tool-bar__button mr-1`}
-          onClick={stillInProgress}>
+          onClick={handleListClick(false)}>
           <FAIcon name='list-ul' fontSize='0.75em' />
         </IconButton>
         <IconButton
@@ -147,7 +188,7 @@ const Header = (props: {
         </IconButton>
         <IconButton
           className={`tool-bar__button mr-1`}
-          onClick={stillInProgress}>
+          onClick={handleLinkifyClick}>
           <FAIcon name='link' fontSize='0.75em' />
         </IconButton>
       </Container>
