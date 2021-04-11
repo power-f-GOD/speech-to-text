@@ -97,9 +97,55 @@ $theme-secondary-v9: rgb(
   $sec-b + (25 * 4)
 );
 
+$theme-tertiary: rgb(128, 128, 128); //grey
+$tert-r: 128;
+$tert-g: 128;
+$tert-b: 128;
+$theme-tertiary-v1: rgb(
+  $tert-r - (25 * 4),
+  $tert-g - (25 * 4),
+  $tert-b - (25 * 4)
+);
+$theme-tertiary-v2: rgb(
+  $tert-r - (25 * 3),
+  $tert-g - (25 * 3),
+  $tert-b - (25 * 3)
+);
+$theme-tertiary-v3: rgb(
+  $tert-r - (25 * 2),
+  $tert-g - (25 * 2),
+  $tert-b - (25 * 2)
+);
+$theme-tertiary-v4: rgb(
+  $tert-r - (25 * 1),
+  $tert-g - (25 * 1),
+  $tert-b - (25 * 1)
+);
+$theme-tertiary-v5: rgb($tert-r, $tert-g, $tert-b);
+$theme-tertiary-v6: rgb(
+  $tert-r + (25 * 1),
+  $tert-g + (25 * 1),
+  $tert-b + (25 * 1)
+);
+$theme-tertiary-v7: rgb(
+  $tert-r + (25 * 2),
+  $tert-g + (25 * 2),
+  $tert-b + (25 * 2)
+);
+$theme-tertiary-v8: rgb(
+  $tert-r + (25 * 3),
+  $tert-g + (25 * 3),
+  $tert-b + (25 * 3)
+);
+$theme-tertiary-v9: rgb(
+  $tert-r + (25 * 4),
+  $tert-g + (25 * 4),
+  $tert-b + (25 * 4)
+);
+
 $success: rgb(27, 136, 27);
-$error: rgb(245, 34, 34);
-$info: rgb(0, 124, 246);
+$error: rgb(218, 0, 0);
+$info: $theme-tertiary-v2;
 
 @mixin debugger($color: blue) {
   border: 1px solid $color;

@@ -1,4 +1,10 @@
-import React, { useState, useCallback, useEffect, FormEvent } from 'react';
+import React, {
+  useState,
+  useCallback,
+  useEffect,
+  useContext,
+  FormEvent
+} from 'react';
 
 import Container from 'react-bootstrap/Container';
 
@@ -7,6 +13,7 @@ import TextArea, { editorRef } from './TextArea';
 import Footer from './Footer';
 
 import { getSelectionRange } from '../utils/misc';
+import { SnackbarContext } from './SnackBar';
 
 const SpeechRecognition$ =
   window.SpeechRecognition || (window as any).webkitSpeechRecognition;
@@ -23,8 +30,11 @@ const Paper = () => {
   const [isListening, setIsListening] = useState<boolean>(false);
   // this is for to ensure mic button was clicked to stop recording on mobile, else just start listening again
   const [micIsOn, setMicIsOn] = useState<boolean>(false);
-  const [finalTranscript, setFinalTranscript] = useState<string>('');
+  const [finalTranscript, setFinalTranscript] = useState<string>(
+    'Content here is editable... \n\nNB: Say "new line/paragraph" for a new line or paragraph; "full stop" for a full stop.'
+  );
   const [interimTranscript, setInterimTranscript] = useState<string>('');
+  const setSnackbarState = useContext(SnackbarContext);
 
   const startListening = useCallback(() => {
     if (recognition) {
@@ -40,6 +50,8 @@ const Paper = () => {
 
     finalTranscript$ = target.innerHTML || finalTranscript$;
     e.persist();
+
+    // if (finalTranscript$) setFinalTranscript(finalTranscript$);
   }, []);
 
   const stillInProgress = useCallback(() => {
@@ -65,7 +77,13 @@ const Paper = () => {
       recognition.interimResults = true;
 
       recognition.onstart = () => {
-        setInterimTranscript('Listening...');
+        setSnackbarState((prev) => ({
+          ...prev,
+          message: 'Listening... Say something.',
+          open: true,
+          severity: 'info',
+          timeout: 2500
+        }));
 
         if (finalTranscript$) {
           finalTranscript$ += ' ';
@@ -118,7 +136,7 @@ const Paper = () => {
         getSelectionRange(editorRef.current!, true);
       };
     }
-  }, []);
+  }, [setSnackbarState]);
 
   return (
     <Container className='Paper scale-in'>
@@ -130,7 +148,9 @@ const Paper = () => {
       />
       <Footer
         isListening={isListening}
+        finalTranscript={finalTranscript}
         startListening={startListening}
+        setFinalTranscript={setFinalTranscript}
         stillInProgress={stillInProgress}
       />
     </Container>

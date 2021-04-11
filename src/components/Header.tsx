@@ -10,7 +10,7 @@ import FormatColorTextRoundedIcon from '@material-ui/icons/FormatColorTextRounde
 import FAIcon from './Icon';
 
 import { colorsArray } from '../utils/misc';
-import { interimTranscriptRef } from './TextArea';
+import { appStatusRef } from './TextArea';
 
 type AppFontTypes =
   | 'Sans-serif'
@@ -105,10 +105,10 @@ const Header = () => {
 
       document.execCommand('createLink', false, selection);
     } else {
-      interimTranscriptRef.current!.textContent =
+      appStatusRef.current!.textContent =
         'Selection not a valid URI/URL!';
       setTimeout(() => {
-        interimTranscriptRef.current!.textContent = '';
+        appStatusRef.current!.textContent = '';
       }, 3000);
     }
   }, []);

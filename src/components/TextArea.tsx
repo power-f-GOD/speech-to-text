@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
 export const editorRef = createRef<HTMLElement | null>();
-export const interimTranscriptRef = createRef<HTMLElement | null>();
+export const appStatusRef = createRef<HTMLElement | null>();
 
 const TextArea = (props: {
   interimTranscript: string;
@@ -14,28 +14,23 @@ const TextArea = (props: {
   const { interimTranscript, finalTranscript, triggerEdit } = props;
 
   return (
-    <>
-      <Container fluid className='text-area-container custom-scroll-bar px-0'>
-        <Row
-          className='text-area'
-          contentEditable={true}
-          suppressContentEditableWarning={true}
-          onInput={triggerEdit}
-          onCut={triggerEdit}
-          onPaste={triggerEdit}
-          dangerouslySetInnerHTML={{
-            __html: finalTranscript
-              ? finalTranscript
-              : interimTranscript
-              ? ''
-              : 'Content here is editable... \n\nNB: Say "new line/paragraph" for a new line or paragraph; "full stop" for a full stop.'
-          }}
-          ref={editorRef as any}></Row>
-      </Container>
-      <div className='interim-transcript' ref={interimTranscriptRef as any}>
-        {interimTranscript ? interimTranscript : ''}
-      </div>
-    </>
+    <Container fluid className='text-area-container custom-scroll-bar px-0'>
+      <Row
+        className='text-area'
+        contentEditable={true}
+        suppressContentEditableWarning={true}
+        onInput={triggerEdit}
+        onCut={triggerEdit}
+        onPaste={triggerEdit}
+        dangerouslySetInnerHTML={{
+          __html: finalTranscript
+            ? finalTranscript +
+              `<span class='theme-secondary-lighter'>${interimTranscript}</span>`
+            : interimTranscript
+        }}
+        ref={editorRef as any}
+      />
+    </Container>
   );
 };
 

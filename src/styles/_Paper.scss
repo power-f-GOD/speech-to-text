@@ -13,11 +13,23 @@
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
 }
 
-.interim-transcript {
-  color: #999;
+.app-status {
+  color: white;
   pointer-events: none;
   display: inline-block;
   position: absolute;
   bottom: 4.25rem;
   left: 2.25rem;
+
+  &.error {
+    background-color: $error;
+  }
+
+  &.success {
+    background-color: $success;
+  }
+
+  &.info {
+    background-color: $info;
+  }
 }
