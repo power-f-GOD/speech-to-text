@@ -145,7 +145,7 @@ $theme-tertiary-v9: rgb(
 
 $success: rgb(27, 136, 27);
 $error: rgb(218, 0, 0);
-$info: $theme-tertiary-v2;
+$info: limegreen; // rgb(2, 176, 182);
 
 @mixin debugger($color: blue) {
   border: 1px solid $color;

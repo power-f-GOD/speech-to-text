@@ -54,10 +54,6 @@ const Paper = () => {
     // if (finalTranscript$) setFinalTranscript(finalTranscript$);
   }, []);
 
-  const stillInProgress = useCallback(() => {
-    alert('Feature still under construction.');
-  }, []);
-
   useEffect(() => {
     if (recognition) {
       recognition.onend = () => {
@@ -151,7 +147,6 @@ const Paper = () => {
         finalTranscript={finalTranscript}
         startListening={startListening}
         setFinalTranscript={setFinalTranscript}
-        stillInProgress={stillInProgress}
       />
     </Container>
   );

@@ -1,0 +1,23 @@
+@media print {
+  .Paper {
+    width: 100%;
+    padding: 5vw 2.5vw;
+    box-shadow: none;
+  }
+
+  header {
+    display: none;
+  }
+
+  .text-area-container {
+    border: none;
+  }
+
+  .footer {
+    display: none;
+  }
+
+  .MuiTooltip-popper {
+    display: none;
+  }
+}

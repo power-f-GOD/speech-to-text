@@ -10,7 +10,7 @@ body,
   margin: 0;
   overflow: hidden;
   font-size: 1rem;
-  background-color: $theme-primary-v1;
+  // background-color: $theme-primary-v1;
   color: #111;
   font-family: 'Quicksand', 'Trebuchet MS', sans-serif;
   line-height: 1.8rem;
@@ -23,6 +23,8 @@ body,
 
 body {
   padding: 0 !important;
+  position: relative;
+  background-color: $theme-primary-v1;
 
   &.desktop.is-pc {
     [class*='PrivateSwipeArea'] {
@@ -47,6 +49,12 @@ body {
         border-radius: 0.5em;
       }
     }
+  }
+
+  &:before {
+    @include before-or-after($bg: url('/IMG3.jpeg'), $o: 0.5);
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 
@@ -166,9 +174,9 @@ h6 {
 .MuiAlert-filledInfo {
   background: $info;
 
-  [class*='Icon'] {
-    color: orange;
-  }
+  // [class*='Icon'] {
+  //   // color: orange;
+  // }
 
   button {
     [class*='Icon'] {

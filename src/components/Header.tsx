@@ -105,8 +105,7 @@ const Header = () => {
 
       document.execCommand('createLink', false, selection);
     } else {
-      appStatusRef.current!.textContent =
-        'Selection not a valid URI/URL!';
+      appStatusRef.current!.textContent = 'Selection not a valid URI/URL!';
       setTimeout(() => {
         appStatusRef.current!.textContent = '';
       }, 3000);

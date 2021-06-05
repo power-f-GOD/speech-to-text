@@ -19,14 +19,12 @@ const Footer = (props: {
   finalTranscript: string;
   startListening(e: MouseEvent<HTMLButtonElement>): void;
   setFinalTranscript(transcript: string): void;
-  stillInProgress?(): void;
 }) => {
   const {
     isListening,
     finalTranscript,
     startListening,
-    setFinalTranscript,
-    stillInProgress
+    setFinalTranscript
   } = props;
   const setSnackbarState = useContext(SnackbarContext);
 
@@ -47,7 +45,7 @@ const Footer = (props: {
     [setSnackbarState]
   );
 
-  const downloadText = useCallback(() => {
+  const downloadTranscript = useCallback(() => {
     const a = document.createElement('a');
 
     setSnackbarState((prev) => ({
@@ -69,6 +67,10 @@ const Footer = (props: {
     );
     a.click();
   }, [finalTranscript, setSnackbarState]);
+
+  const printTranscript = useCallback(() => {
+    window.print();
+  }, []);
 
   const clearTranscript = useCallback(() => {
     setFinalTranscript('');
@@ -100,7 +102,7 @@ const Footer = (props: {
             className={`tool-bar__button mr-1 mr-sm-2 ${
               !finalTranscript ? 'Mui-disabled' : ''
             }`}
-            onClick={downloadText}
+            onClick={downloadTranscript}
             tabIndex={finalTranscript ? 0 : -1}>
             <FAIcon name='file-download' />
           </IconButton>
@@ -111,7 +113,7 @@ const Footer = (props: {
             className={`tool-bar__button mr-1 mr-sm-2 ${
               !finalTranscript ? 'Mui-disabled' : ''
             }`}
-            onClick={stillInProgress}
+            onClick={printTranscript}
             tabIndex={finalTranscript ? 0 : -1}>
             <FAIcon name='print' />
           </IconButton>
