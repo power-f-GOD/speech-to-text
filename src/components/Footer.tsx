@@ -15,16 +15,20 @@ import { getSelectionRange } from '../utils/misc';
 import { SnackbarContext } from './SnackBar';
 
 const Footer = (props: {
+  isSpeaking: boolean;
   isListening: boolean;
   finalTranscript: string;
   startListening(e: MouseEvent<HTMLButtonElement>): void;
   setFinalTranscript(transcript: string): void;
+  playText(e: MouseEvent<HTMLButtonElement>): void;
 }) => {
   const {
+    isSpeaking,
     isListening,
     finalTranscript,
     startListening,
-    setFinalTranscript
+    setFinalTranscript,
+    playText
   } = props;
   const setSnackbarState = useContext(SnackbarContext);
 
@@ -132,7 +136,18 @@ const Footer = (props: {
       </Col>
       <Col className='px-0'>
         <IconButton
-          className={`mic-button ${isListening ? 'is-listening' : ''} mr-1`}
+          className={`speak-button speech-button ${
+            isSpeaking ? 'is-speaking' : ''
+          } mr-2 ${isListening ? 'Mui-disabled' : ''}`}
+          tabIndex={isListening ? -1 : 0}
+          onClick={playText}>
+          {<FAIcon name={`${isSpeaking ? 'stop' : 'play'}-circle`} />}
+        </IconButton>
+        <IconButton
+          className={`mic-button speech-button ${
+            isListening ? 'is-listening' : ''
+          } mr-1 ${isSpeaking ? 'Mui-disabled' : ''}`}
+          tabIndex={isSpeaking ? -1 : 0}
           onClick={startListening}>
           {isListening ? <MicOffIcon /> : <MicIcon />}
         </IconButton>

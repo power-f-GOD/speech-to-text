@@ -17,23 +17,31 @@ import { SnackbarContext } from './SnackBar';
 
 const SpeechRecognition$ =
   window.SpeechRecognition || (window as any).webkitSpeechRecognition;
+const synthesis =
+  window.speechSynthesis || (window as any).webkitSpeechSynthesis;
 
 let recognition: SpeechRecognition | null = null;
 let finalTranscript$ = '';
 let lastDebounceTranscript = ''; // use this for prevent duplicate transcript (for mobile)
 
-if (SpeechRecognition$) {
+if (SpeechRecognition$ && synthesis) {
   recognition = new SpeechRecognition$();
+} else {
+  alert(
+    'Sorry, Speech Recognition/Synthesis is not supported on this browser. Please, use a supported browser like Chrome.'
+  );
 }
 
 const Paper = () => {
   const [isListening, setIsListening] = useState<boolean>(false);
+  const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
   // this is for to ensure mic button was clicked to stop recording on mobile, else just start listening again
   const [micIsOn, setMicIsOn] = useState<boolean>(false);
   const [finalTranscript, setFinalTranscript] = useState<string>(
     'Content here is editable... \n\nNB: Say "new line/paragraph" for a new line or paragraph; "full stop" for a full stop.'
   );
   const [interimTranscript, setInterimTranscript] = useState<string>('');
+  const [voice, setVoice] = useState<SpeechSynthesisVoice | null>(null);
   const setSnackbarState = useContext(SnackbarContext);
 
   const startListening = useCallback(() => {
@@ -53,6 +61,24 @@ const Paper = () => {
 
     // if (finalTranscript$) setFinalTranscript(finalTranscript$);
   }, []);
+
+  const playText = useCallback(() => {
+    const utterance = new SpeechSynthesisUtterance(
+      editorRef.current?.textContent || ''
+    );
+
+    utterance.voice = voice;
+    utterance.rate = 0.9;
+    setIsSpeaking((speaking) => {
+      if (!speaking) {
+        synthesis.speak(utterance);
+      } else {
+        synthesis.cancel();
+      }
+
+      return !speaking;
+    });
+  }, [voice]);
 
   useEffect(() => {
     if (recognition) {
@@ -134,6 +160,19 @@ const Paper = () => {
     }
   }, [setSnackbarState]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      const voices = synthesis.getVoices();
+      let voice: SpeechSynthesisVoice | undefined = voices[52];
+
+      if (voice?.name !== 'Samantha') {
+        voice = voices.find((voice) => voice.name === 'Samantha');
+      }
+
+      setVoice(voice || voices[0]);
+    }, 200);
+  }, []);
+
   return (
     <Container className='Paper scale-in'>
       <Header />
@@ -143,10 +182,12 @@ const Paper = () => {
         triggerEdit={triggerEdit}
       />
       <Footer
+        isSpeaking={isSpeaking}
         isListening={isListening}
         finalTranscript={finalTranscript}
         startListening={startListening}
         setFinalTranscript={setFinalTranscript}
+        playText={playText}
       />
     </Container>
   );

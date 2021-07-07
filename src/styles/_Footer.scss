@@ -23,7 +23,7 @@ footer.footer {
   }
 }
 
-button.mic-button {
+.speech-button {
   background-color: $theme-primary-v6;
   color: white;
   box-shadow: 0 0.25rem 1.5rem rgba(0, 0, 0, 0.2);
@@ -38,11 +38,58 @@ button.mic-button {
     position: relative;
   }
 
-  &:hover,
-  &:focus {
-    background-color: $theme-primary-v3;
+  &::before,
+  &::after {
+    @include before-or-after(
+      $h: 100%,
+      $w: 100%,
+      $bg: transparent,
+      $br: inherit
+    );
+    content: unset;
+    animation: chatButtonRipple 1.75s infinite;
+  }
+}
+
+.speak-button {
+  $size: 2.6rem;
+
+  background-color: white;
+  border: 0.0625rem solid $theme-primary-v5;
+  color: $theme-primary-v5;
+  height: $size;
+  width: $size;
+
+  &.is-speaking {
+    color: red;
+    border-color: transparent;
+    // &::before,
+    // &::after {
+    //   content: '';
+    // }
+
+    &:hover,
+    &:focus {
+      border-color: red;
+      background-color: transparent;
+      color: red;
+    }
   }
 
+  &:hover,
+  &:focus {
+    border-color: transparent;
+    background-color: $theme-primary-v5;
+    color: white;
+  }
+
+  &::before,
+  &::after {
+    background: $theme-primary-v5;
+  }
+}
+
+.mic-button {
   &.is-listening {
     background-color: red;
 
@@ -59,29 +106,27 @@ button.mic-button {
 
     &::before,
     &::after {
-      @include before-or-after(
-        $h: 100%,
-        $w: 100%,
-        $bg: transparent,
-        $br: inherit
-      );
-      background: red;
-      animation: chatButtonRipple 1.75s infinite;
+      content: '';
     }
 
     &::after {
       animation-delay: 0.65s;
     }
+  }
 
-    @keyframes chatButtonRipple {
-      from {
-        opacity: 1;
-        transform: scale(0.9);
-      }
-      to {
-        transform: scale(1.35);
-        opacity: 0;
-      }
-    }
+  &:hover,
+  &:focus {
+    background-color: $theme-primary-v3;
+  }
+}
+
+@keyframes chatButtonRipple {
+  from {
+    opacity: 1;
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1.35);
+    opacity: 0;
   }
 }
